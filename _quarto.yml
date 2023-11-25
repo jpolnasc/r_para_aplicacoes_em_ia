@@ -1,0 +1,45 @@
+project:
+
+  type: book
+
+book:
+
+  title: "Software R para aplicações em IA"
+  reader-mode: true
+  page-navigation: true
+  author:
+    - name: "Anderson Castro Soares de Oliveira"
+      affiliations:
+        - name: "Departamento de Estatística/UFMT"
+    - name: "João Pedro Florentino de Oliveira Nascimento"
+      affiliations:
+        - name: "Departamento de Estatística/UFMT"
+  
+  cover-image: imagens/Eri-Logo.jpg 
+  image: imagens/Eri-Logo.jpg 
+  favicon: imagens/Eri-Logo.jpg 
+  date: "11/23/2023"
+  chapters:
+    - index.qmd
+    - cap1.qmd
+    - cap2.qmd
+    - cap3.qmd
+    - cap4.qmd
+    - cap5.qmd
+    - references.qmd
+
+bibliography: references.bib
+format:
+  html:
+    theme:
+      - cosmo
+      - r4ds.scss
+    code-link: true
+
+  pdf:
+   documentclass: scrbook
+   margin-left: 30mm
+   margin-right: 30mm 
+   
+editor: visual
+

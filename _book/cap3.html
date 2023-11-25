@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Software R para aplicações em IA - 3&nbsp; R: Breve Histórico e Importância</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./cap4.html" rel="next">
+<link href="./cap2.html" rel="prev">
+<link href="./imagens/Eri-Logo.jpg" rel="icon" type="image/jpeg">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./cap3.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">**R: Breve Histórico e Importância**</span></a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Software R para aplicações em IA</a> 
+        <div class="sidebar-tools-main">
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Prefácio</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./cap1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introdução e Contextualização</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./cap2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Estatística, Machine Learning e IA</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./cap3.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title"><strong>R: Breve Histórico e Importância</strong></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./cap4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Aplicações Básicas e Intermediárias em IA com R</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./cap5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title"><strong>Modelagem e Análise de Texto</strong></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#r-no-contexto-da-análise-estatística-e-ciência-de-dados" id="toc-r-no-contexto-da-análise-estatística-e-ciência-de-dados" class="nav-link active" data-scroll-target="#r-no-contexto-da-análise-estatística-e-ciência-de-dados"><span class="header-section-number">3.1</span> <strong>R no Contexto da Análise Estatística e Ciência de Dados</strong></a>
+  <ul class="collapse">
+  <li><a href="#o-r-na-era-da-inteligência-artificial" id="toc-o-r-na-era-da-inteligência-artificial" class="nav-link" data-scroll-target="#o-r-na-era-da-inteligência-artificial"><span class="header-section-number">3.1.1</span> <strong>O R na Era da Inteligência Artificial</strong></a></li>
+  <li><a href="#a-comunidade-e-o-ecossistema-do-r" id="toc-a-comunidade-e-o-ecossistema-do-r" class="nav-link" data-scroll-target="#a-comunidade-e-o-ecossistema-do-r"><span class="header-section-number">3.1.2</span> <strong>A Comunidade e o Ecossistema do R</strong></a></li>
+  </ul></li>
+  <li><a href="#popularidade-do-r-na-pesquisa-científica" id="toc-popularidade-do-r-na-pesquisa-científica" class="nav-link" data-scroll-target="#popularidade-do-r-na-pesquisa-científica"><span class="header-section-number">3.2</span> <strong>Popularidade do R na Pesquisa Científica</strong></a>
+  <ul class="collapse">
+  <li><a href="#estudos-de-caso-e-aplicações-em-diversos-campos" id="toc-estudos-de-caso-e-aplicações-em-diversos-campos" class="nav-link" data-scroll-target="#estudos-de-caso-e-aplicações-em-diversos-campos"><span class="header-section-number">3.2.1</span> Estudos de Caso e Aplicações em Diversos Campos</a></li>
+  <li><a href="#contribuição-da-comunidade-científica-para-o-desenvolvimento-do-r" id="toc-contribuição-da-comunidade-científica-para-o-desenvolvimento-do-r" class="nav-link" data-scroll-target="#contribuição-da-comunidade-científica-para-o-desenvolvimento-do-r"><span class="header-section-number">3.2.2</span> <strong>Contribuição da Comunidade Científica para o Desenvolvimento do R</strong></a></li>
+  <li><a href="#adaptação-às-necessidades-emergentes-em-ciência-de-dados-e-ia" id="toc-adaptação-às-necessidades-emergentes-em-ciência-de-dados-e-ia" class="nav-link" data-scroll-target="#adaptação-às-necessidades-emergentes-em-ciência-de-dados-e-ia"><span class="header-section-number">3.2.3</span> <strong>Adaptação às Necessidades Emergentes em Ciência de Dados e IA</strong></a></li>
+  </ul></li>
+  <li><a href="#vantagens-e-limitações-do-r-para-ia" id="toc-vantagens-e-limitações-do-r-para-ia" class="nav-link" data-scroll-target="#vantagens-e-limitações-do-r-para-ia"><span class="header-section-number">3.3</span> <strong>Vantagens e Limitações do R para IA</strong></a>
+  <ul class="collapse">
+  <li><a href="#vantagens-do-uso-do-r-em-ia" id="toc-vantagens-do-uso-do-r-em-ia" class="nav-link" data-scroll-target="#vantagens-do-uso-do-r-em-ia"><span class="header-section-number">3.3.1</span> <strong>Vantagens do Uso do R em IA</strong></a></li>
+  <li><a href="#limitações-e-desafios" id="toc-limitações-e-desafios" class="nav-link" data-scroll-target="#limitações-e-desafios"><span class="header-section-number">3.3.2</span> <strong>Limitações e Desafios</strong></a></li>
+  </ul></li>
+  <li><a href="#configuração-e-ferramentas-essenciais" id="toc-configuração-e-ferramentas-essenciais" class="nav-link" data-scroll-target="#configuração-e-ferramentas-essenciais"><span class="header-section-number">3.4</span> <strong>Configuração e Ferramentas Essenciais</strong></a>
+  <ul class="collapse">
+  <li><a href="#instalação-e-configuração-básica" id="toc-instalação-e-configuração-básica" class="nav-link" data-scroll-target="#instalação-e-configuração-básica"><span class="header-section-number">3.4.1</span> <strong>Instalação e Configuração Básica</strong></a></li>
+  <li><a href="#gestão-de-pacotes" id="toc-gestão-de-pacotes" class="nav-link" data-scroll-target="#gestão-de-pacotes"><span class="header-section-number">3.4.2</span> <strong>Gestão de Pacotes</strong></a></li>
+  <li><a href="#pacotes-de-machine-learning" id="toc-pacotes-de-machine-learning" class="nav-link" data-scroll-target="#pacotes-de-machine-learning"><span class="header-section-number">3.4.3</span> <strong>Pacotes de Machine Learning</strong></a></li>
+  <li><a href="#pacotes-para-aprendizado-profundo" id="toc-pacotes-para-aprendizado-profundo" class="nav-link" data-scroll-target="#pacotes-para-aprendizado-profundo"><span class="header-section-number">3.4.4</span> <strong>Pacotes para Aprendizado Profundo</strong></a></li>
+  <li><a href="#integração-e-expansão" id="toc-integração-e-expansão" class="nav-link" data-scroll-target="#integração-e-expansão"><span class="header-section-number">3.4.5</span> <strong>Integração e Expansão</strong></a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title"><strong>R: Breve Histórico e Importância</strong></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<p>Neste capítulo, mergulhamos na evolução do R, uma linguagem e ambiente originalmente voltado para análise estatística e gráfica, que evoluiu para se tornar uma ferramenta essencial na ciência de dados e Inteligência Artificial (IA). Exploraremos como o R se desenvolveu de suas origens modestas para alcançar um papel de destaque no cenário tecnológico atual.</p>
+<p><strong>O Início e Desenvolvimento do R</strong></p>
+<p>Ross Ihaka e Robert Gentleman, da Universidade de Auckland, criaram o R em 1995, concebendo-o como uma alternativa mais acessível e flexível às ferramentas estatísticas da época, especialmente em comparação com o S-Plus. O S-Plus, uma implementação comercial da linguagem de programação S desenvolvida nos Bell Laboratories, era notável por sua capacidade analítica e gráfica, mas era restrito por limitações de licenciamento e acessibilidade <span class="citation" data-cites="Ihaka_Ross1996 Ihaka1998">(<a href="references.html#ref-Ihaka_Ross1996" role="doc-biblioref">Ihaka and Gentleman 1996</a>; <a href="references.html#ref-Ihaka1998" role="doc-biblioref">Ihaka 1998</a>)</span></p>
+<p>Inspirado pela linguagem S, o R foi desenvolvido com o objetivo de oferecer uma solução de código aberto que pudesse ser livremente utilizada e modificada pela comunidade acadêmica e de pesquisa. Essa natureza de código aberto permitiu que o R rapidamente se destacasse no campo da análise estatística e gráfica, promovendo uma colaboração global intensa e levando ao desenvolvimento de uma plataforma robusta <span class="citation" data-cites="Giorgie_etal2022 Ihaka_Ross1996 venables2013s">(<a href="references.html#ref-Giorgie_etal2022" role="doc-biblioref">Giorgi, Ceraolo, and Mercatelli 2022</a>; <a href="references.html#ref-Ihaka_Ross1996" role="doc-biblioref">Ihaka and Gentleman 1996</a>; <a href="references.html#ref-venables2013s" role="doc-biblioref">W. Venables and Ripley 2013</a>)</span>.</p>
+<p>A influência do S-Plus é perceptível no R, particularmente na similaridade de várias funções e na filosofia de design. No entanto, o R expandiu e evoluiu além desses conceitos iniciais, especialmente em termos de colaboração comunitária e extensibilidade. Com o passar do tempo, o R se distanciou de suas raízes no S-Plus, desenvolvendo uma identidade própria e uma comunidade dedicada. Esta comunidade continua a impulsionar seu desenvolvimento e aplicação em diversas áreas da ciência de dados e IA, reforçando a importância e o impacto do R no mundo tecnológico moderno <span class="citation" data-cites="Giorgie_etal2022 Ihaka_Ross1996">(<a href="references.html#ref-Giorgie_etal2022" role="doc-biblioref">Giorgi, Ceraolo, and Mercatelli 2022</a>; <a href="references.html#ref-Ihaka_Ross1996" role="doc-biblioref">Ihaka and Gentleman 1996</a>)</span>.</p>
+<section id="r-no-contexto-da-análise-estatística-e-ciência-de-dados" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="r-no-contexto-da-análise-estatística-e-ciência-de-dados"><span class="header-section-number">3.1</span> <strong>R no Contexto da Análise Estatística e Ciência de Dados</strong></h2>
+<p>A importância do R no campo da análise estatística e ciência de dados é amplamente reconhecida. Com sua vasta coleção de pacotes estatísticos e gráficos, o R se adequa a uma gama diversa de análises, abrangendo desde tarefas básicas até procedimentos altamente complexos. O software é particularmente notável por sua habilidade em gerenciar grandes conjuntos de dados, executar operações complexas de manipulação de dados, e produzir visualizações gráficas de alta qualidade <span class="citation" data-cites="Giorgie_etal2022 Donoho2017">(<a href="references.html#ref-Giorgie_etal2022" role="doc-biblioref">Giorgi, Ceraolo, and Mercatelli 2022</a>; <a href="references.html#ref-Donoho2017" role="doc-biblioref">Donoho 2017</a>)</span></p>
+<p>Além de sua funcionalidade estatística, o R desempenha um papel crucial no desenvolvimento da ciência de dados como uma área de pesquisa dinâmica. Sua comunidade ativa tem contribuído imensamente para o enriquecimento do R, desenvolvendo pacotes e bibliotecas que expandem suas capacidades para além da análise estatística tradicional. Hoje, o R é uma ferramenta indispensável em campos como análise preditiva, modelagem estatística, mineração de dados e, mais recentemente, em aplicações de aprendizado de máquina e IA <span class="citation" data-cites="Giorgie_etal2022 venables2013s wickham2016">(<a href="references.html#ref-Giorgie_etal2022" role="doc-biblioref">Giorgi, Ceraolo, and Mercatelli 2022</a>; <a href="references.html#ref-venables2013s" role="doc-biblioref">W. Venables and Ripley 2013</a>; <a href="references.html#ref-wickham2016" role="doc-biblioref">Wickham and Grolemund 2016</a>)</span>.</p>
+<section id="o-r-na-era-da-inteligência-artificial" class="level3" data-number="3.1.1">
+<h3 data-number="3.1.1" class="anchored" data-anchor-id="o-r-na-era-da-inteligência-artificial"><span class="header-section-number">3.1.1</span> <strong>O R na Era da Inteligência Artificial</strong></h3>
+<p>Com a ascensão da IA, o R tem se adaptado para atender às demandas deste campo em rápida evolução. Embora tradicionalmente não seja considerado a primeira escolha para aplicações de aprendizado de máquina e IA em comparação a outras linguagens, o R tem ganhado terreno significativo. Esta evolução é marcada pelo desenvolvimento de pacotes específicos para IA no R e pela sua crescente integração com plataformas e frameworks de ponta na área <span class="citation" data-cites="James2013 kalyan2018 tuffery2023">(<a href="references.html#ref-James2013" role="doc-biblioref">James et al. 2023</a>; <a href="references.html#ref-kalyan2018" role="doc-biblioref">Kalyan 2018</a>; <a href="references.html#ref-tuffery2023" role="doc-biblioref">Tuffery 2023</a>)</span>.</p>
+<p>Além desses pacotes, uma das evoluções mais notáveis é a integração do R com outras plataformas de IA, especialmente com o Python. Essa integração permite que os usuários do R aproveitem as bibliotecas de IA do Python, combinando o melhor dos dois mundos: a análise estatística e gráfica avançada do R com as robustas capacidades de IA disponíveis no Python. Isso reflete a crescente relevância do R como uma ferramenta versátil na era da IA, capaz de se adaptar e incorporar inovações de outras linguagens e tecnologias <span class="citation" data-cites="kalyan2018 ohri2017 Tahsin2020">(<a href="references.html#ref-kalyan2018" role="doc-biblioref">Kalyan 2018</a>; <a href="references.html#ref-ohri2017" role="doc-biblioref">Ohri 2017</a>; <a href="references.html#ref-Tahsin2020" role="doc-biblioref">Tahsin and Hasan 2020</a>)</span>.</p>
+</section>
+<section id="a-comunidade-e-o-ecossistema-do-r" class="level3" data-number="3.1.2">
+<h3 data-number="3.1.2" class="anchored" data-anchor-id="a-comunidade-e-o-ecossistema-do-r"><span class="header-section-number">3.1.2</span> <strong>A Comunidade e o Ecossistema do R</strong></h3>
+<p>Um dos maiores trunfos do R é sua vibrante comunidade. Com usuários e desenvolvedores ao redor do mundo, o R beneficia-se de uma ampla gama de perspectivas e experiências, contribuindo para sua contínua inovação e aprimoramento. Conferências como o “useR!”, DSC, workshops, e fóruns online, como o R-help e Stack Overflow, são testemunhos da colaboração e do compartilhamento de conhecimento que impulsionam o crescimento do R. <span class="citation" data-cites="rprojectconferences rprojecthelp stackoverflowRlang">(<a href="references.html#ref-rprojectconferences" role="doc-biblioref">R Project 2023a</a>, <a href="references.html#ref-rprojecthelp" role="doc-biblioref">2023b</a>; <a href="references.html#ref-stackoverflowRlang" role="doc-biblioref">Stack Overflow 2023</a>)</span></p>
+</section>
+</section>
+<section id="popularidade-do-r-na-pesquisa-científica" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="popularidade-do-r-na-pesquisa-científica"><span class="header-section-number">3.2</span> <strong>Popularidade do R na Pesquisa Científica</strong></h2>
+<p>O R, desde o início, estabeleceu-se como uma ferramenta de pesquisa essencial em uma variedade de campos científicos. Seu uso se estende desde a biologia e epidemiologia até a economia e psicologia, provendo uma plataforma para análise estatística e visualização de dados. Essa versatilidade é evidenciada pelo crescente número de publicações e estudos de pesquisa que fazem uso do R, abrangendo desde análises básicas de dados até modelagens complexas e simulações <span class="citation" data-cites="Giorgie_etal2022 Ihaka1998 tippmann2015">(<a href="references.html#ref-Giorgie_etal2022" role="doc-biblioref">Giorgi, Ceraolo, and Mercatelli 2022</a>; <a href="references.html#ref-Ihaka1998" role="doc-biblioref">Ihaka 1998</a>; <a href="references.html#ref-tippmann2015" role="doc-biblioref">Tippmann 2015</a>)</span>.</p>
+<section id="estudos-de-caso-e-aplicações-em-diversos-campos" class="level3" data-number="3.2.1">
+<h3 data-number="3.2.1" class="anchored" data-anchor-id="estudos-de-caso-e-aplicações-em-diversos-campos"><span class="header-section-number">3.2.1</span> Estudos de Caso e Aplicações em Diversos Campos</h3>
+<ol type="1">
+<li><p>Bioestatística e Epidemiologia - o R é utilizado para analisar e interpretar dados relacionados à saúde. Por exemplo, é crucial no monitoramento e na modelagem da propagação de doenças infecciosas. Ferramentas de análise de sobrevivência e modelos estatísticos complexos no R ajudaram pesquisadores a entender padrões de doenças e a eficácia de intervenções médicas <span class="citation" data-cites="chan2015">(<a href="references.html#ref-chan2015" role="doc-biblioref">Chan 2015</a>)</span>.</p></li>
+<li><p>Genômica - O R tem desempenhado um papel significativo na genômica, especialmente na análise de dados de sequenciamento de alta performance. Pacotes como Bioconductor fornecem ferramentas para a análise de expressão gênica, ajudando na identificação de genes associados a diferentes condições de saúde e na compreensão de mecanismos genéticos <span class="citation" data-cites="paradis2020">(<a href="references.html#ref-paradis2020" role="doc-biblioref">Paradis 2020</a>)</span>.</p></li>
+<li><p>Análise de Experimentos - Em experimentos científicos e industriais, o R é frequentemente utilizado para desenho experimental e análise de dados. Sua capacidade de lidar com complexidades como fatores de confusão, interações e estruturas de erro heterogêneas torna-o ideal para esta área <span class="citation" data-cites="lawson2014">(<a href="references.html#ref-lawson2014" role="doc-biblioref">Lawson 2014</a>)</span>.</p></li>
+<li><p>Economia e Econometria -o R é empregado para análise de dados econômicos, previsão de tendências de mercado e avaliação de políticas. Ele oferece um conjunto diversificado de pacotes para modelagem econométrica, análise de séries temporais e testes de hipóteses, contribuindo para uma compreensão mais profunda de fenômenos econômicos <span class="citation" data-cites="singh2016r">(<a href="references.html#ref-singh2016r" role="doc-biblioref">Singh and Allen 2016</a>)</span>.</p></li>
+<li><p>Ciências Ambientais - O R é também uma ferramenta chave nas ciências ambientais, usada para modelar dados climáticos, avaliar biodiversidade e estudar ecologia. Ele auxilia cientistas a compreender padrões climáticos, impactos ambientais de ações humanas e a preservar ecossistemas <span class="citation" data-cites="al2019applied">(<a href="references.html#ref-al2019applied" role="doc-biblioref">Al-Karkhi and Alqaraghuli 2019</a>)</span>.</p></li>
+</ol>
+</section>
+<section id="contribuição-da-comunidade-científica-para-o-desenvolvimento-do-r" class="level3" data-number="3.2.2">
+<h3 data-number="3.2.2" class="anchored" data-anchor-id="contribuição-da-comunidade-científica-para-o-desenvolvimento-do-r"><span class="header-section-number">3.2.2</span> <strong>Contribuição da Comunidade Científica para o Desenvolvimento do R</strong></h3>
+<p>A comunidade de usuários do R, uma coligação diversificada de cientistas e pesquisadores de várias disciplinas, tem desempenhado um papel fundamental na evolução contínua deste software. A natureza de código aberto do R tem encorajado uma participação ativa, onde os usuários não se limitam apenas a aplicar a ferramenta em suas pesquisas, mas também contribuem significativamente para o seu desenvolvimento. Esta contribuição vai além do uso convencional; eles inovam, criando pacotes e extensões que atendem às necessidades específicas de suas respectivas áreas de estudo. O resultado é um enriquecimento constante do ecossistema do R, com novas funcionalidades e ferramentas que ampliam sua aplicabilidade e eficácia <span class="citation" data-cites="Giorgie_etal2022 Ihaka1998 rprojecthelp tippmann2015">(<a href="references.html#ref-Giorgie_etal2022" role="doc-biblioref">Giorgi, Ceraolo, and Mercatelli 2022</a>; <a href="references.html#ref-Ihaka1998" role="doc-biblioref">Ihaka 1998</a>; <a href="references.html#ref-rprojecthelp" role="doc-biblioref">R Project 2023b</a>; <a href="references.html#ref-tippmann2015" role="doc-biblioref">Tippmann 2015</a>)</span>.</p>
+<p>Além do desenvolvimento de pacotes, a comunidade do R também desempenha um papel crucial na disseminação de conhecimento e na formação de uma base sólida de suporte. Este intercâmbio de conhecimentos e experiências não só fortalece a base de usuários do R, mas também impulsiona o avanço da ciência de dados como um todo, demonstrando o poder da colaboração e da comunidade na evolução tecnológica.</p>
+</section>
+<section id="adaptação-às-necessidades-emergentes-em-ciência-de-dados-e-ia" class="level3" data-number="3.2.3">
+<h3 data-number="3.2.3" class="anchored" data-anchor-id="adaptação-às-necessidades-emergentes-em-ciência-de-dados-e-ia"><span class="header-section-number">3.2.3</span> <strong>Adaptação às Necessidades Emergentes em Ciência de Dados e IA</strong></h3>
+<p>À medida que os campos de ciência de dados e Inteligência Artificial (IA) continuam a se expandir e evoluir, o R tem demonstrado uma notável capacidade de adaptação e inovação. A integração do R com ferramentas avançadas de aprendizado de máquina e IA é um exemplo claro dessa evolução. Esta integração não apenas expandiu o escopo de aplicabilidade do R, mas também permitiu que cientistas e analistas de dados realizassem análises mais complexas e sofisticadas. Com pacotes específicos para algoritmos de aprendizado de máquina e redes neurais, o R agora é capaz de lidar com tarefas de IA que antes eram consideradas fora de seu alcance <span class="citation" data-cites="James2013 kalyan2018 tuffery2023">(<a href="references.html#ref-James2013" role="doc-biblioref">James et al. 2023</a>; <a href="references.html#ref-kalyan2018" role="doc-biblioref">Kalyan 2018</a>; <a href="references.html#ref-tuffery2023" role="doc-biblioref">Tuffery 2023</a>)</span>.</p>
+<p>Além disso, a capacidade do R de se integrar com outras linguagens e plataformas, como Python e TensorFlow, destaca sua flexibilidade e relevância contínua na pesquisa científica. Esta interoperabilidade entre o R e outras tecnologias amplia as possibilidades de análise de dados, permitindo que os pesquisadores aproveitem as forças de várias ferramentas simultaneamente. Por exemplo, a integração do R com Python através de pacotes como reticulate possibilita a utilização conjunta das bibliotecas de IA do Python com as poderosas capacidades estatísticas do R, oferecendo uma abordagem mais holística e eficaz para a solução de problemas complexos de dados. Esta capacidade de adaptação contínua assegura que o R permaneça na vanguarda da tecnologia de análise de dados, atendendo às necessidades emergentes de cientistas e pesquisadores em um mundo cada vez mais orientado por dados <span class="citation" data-cites="James2013 kalyan2018 tuffery2023">(<a href="references.html#ref-James2013" role="doc-biblioref">James et al. 2023</a>; <a href="references.html#ref-kalyan2018" role="doc-biblioref">Kalyan 2018</a>; <a href="references.html#ref-tuffery2023" role="doc-biblioref">Tuffery 2023</a>)</span>..</p>
+</section>
+</section>
+<section id="vantagens-e-limitações-do-r-para-ia" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="vantagens-e-limitações-do-r-para-ia"><span class="header-section-number">3.3</span> <strong>Vantagens e Limitações do R para IA</strong></h2>
+<section id="vantagens-do-uso-do-r-em-ia" class="level3" data-number="3.3.1">
+<h3 data-number="3.3.1" class="anchored" data-anchor-id="vantagens-do-uso-do-r-em-ia"><span class="header-section-number">3.3.1</span> <strong>Vantagens do Uso do R em IA</strong></h3>
+<p><strong>Flexibilidade e Facilidade de Uso</strong></p>
+<ul>
+<li><p>O R é conhecido por sua flexibilidade. Ele permite a realização de uma ampla gama de funções analíticas com relativa facilidade, desde a manipulação de dados até análises estatísticas avançadas.</p></li>
+<li><p>A linguagem é particularmente forte na visualização de dados, uma habilidade crucial na análise exploratória de dados, uma etapa importante na construção de modelos de IA.</p></li>
+</ul>
+<p><strong>Rica Biblioteca de Pacotes</strong></p>
+<ul>
+<li><p>Uma das maiores vantagens do R é a sua vasta coleção de pacotes. Existem pacotes para quase todo tipo de análise estatística e modelo de machine learning, como <code>caret</code> <span class="citation" data-cites="caret">(<a href="references.html#ref-caret" role="doc-biblioref">Kuhn and Max 2008</a>)</span>, <code>randomForest</code> <span class="citation" data-cites="randomForest">(<a href="references.html#ref-randomForest" role="doc-biblioref">Liaw and Wiener 2002</a>)</span>, <code>e1071</code>, <span class="citation" data-cites="e1071">(<a href="references.html#ref-e1071" role="doc-biblioref">Meyer et al. 2023</a>)</span> e muitos outros.</p></li>
+<li><p>A comunidade do R é muito ativa, o que significa que esses pacotes são regularmente atualizados e novos pacotes estão sempre sendo desenvolvidos.</p></li>
+</ul>
+<p><strong>Comunidade Robusta e Suporte</strong></p>
+<ul>
+<li><p>A comunidade R é uma das mais colaborativas e ativas. Isso significa que é fácil encontrar suporte, seja por meio de fóruns, blogs, ou documentação detalhada.</p></li>
+<li><p>Conferências e workshops frequentes contribuem para o contínuo desenvolvimento profissional e para a expansão da rede de contatos na área.</p></li>
+</ul>
+<p><strong>Integração com Outras Linguagens e Ferramentas</strong></p>
+<ul>
+<li>O R pode ser integrado com outras linguagens de programação, como Python, o que é uma vantagem considerável quando se trabalha em projetos de IA que podem requerer funcionalidades além das disponíveis diretamente no R.</li>
+</ul>
+</section>
+<section id="limitações-e-desafios" class="level3" data-number="3.3.2">
+<h3 data-number="3.3.2" class="anchored" data-anchor-id="limitações-e-desafios"><span class="header-section-number">3.3.2</span> <strong>Limitações e Desafios</strong></h3>
+<p><strong>Desempenho e Escalabilidade</strong></p>
+<ul>
+<li><p>Uma das principais críticas ao R é relacionada ao seu desempenho com grandes conjuntos de dados. O R armazena dados na memória, o que pode limitar sua capacidade de lidar com grandes volumes de dados.</p></li>
+<li><p>Soluções envolvem a otimização do código ou a utilização de ferramentas que permitem o processamento de dados fora da memória.</p></li>
+</ul>
+<p><strong>Curva de Aprendizado em Programação</strong></p>
+<ul>
+<li>Para usuários sem um forte background em programação, o R pode apresentar uma curva de aprendizado inicialmente desafiadora, especialmente quando se trata de escrever códigos mais complexos e eficientes.</li>
+</ul>
+</section>
+</section>
+<section id="configuração-e-ferramentas-essenciais" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="configuração-e-ferramentas-essenciais"><span class="header-section-number">3.4</span> <strong>Configuração e Ferramentas Essenciais</strong></h2>
+<section id="instalação-e-configuração-básica" class="level3" data-number="3.4.1">
+<h3 data-number="3.4.1" class="anchored" data-anchor-id="instalação-e-configuração-básica"><span class="header-section-number">3.4.1</span> <strong>Instalação e Configuração Básica</strong></h3>
+<ul>
+<li><p>Para começar a trabalhar com IA no R, o primeiro passo é a instalação do próprio R:</p>
+<ul>
+<li><p>A instalação do R pode ser feita por meio do site <a href="http://%20cran.r-project.org/.">http:// cran.r-project.org/.</a> Primeiro deve selecionar o sistema operacional: Linux, Mac ou Windows</p></li>
+<li><p>Para o Windows é importante também instalar o Rtools <a href="https://cran.r-project.org/bin/windows/Rtools" class="uri">https://cran.r-project.org/bin/windows/Rtools</a></p></li>
+</ul></li>
+<li><p>Também pode-se instalar o Rstudio</p>
+<ul>
+<li><p>O RStudio é um ambiente de desenvolvimento integrado( IDE) para o R e traz algumas funcionalidades adicionais ao R.</p></li>
+<li><p>Para instala-lo por meio do site <a href="https://posit.co/downloads/" class="uri">https://posit.co/downloads/</a></p></li>
+</ul></li>
+<li><p>É importante também configurar o ambiente de trabalho, ajustando configurações para otimizar a eficiência e a facilidade de uso.</p></li>
+</ul>
+</section>
+<section id="gestão-de-pacotes" class="level3" data-number="3.4.2">
+<h3 data-number="3.4.2" class="anchored" data-anchor-id="gestão-de-pacotes"><span class="header-section-number">3.4.2</span> <strong>Gestão de Pacotes</strong></h3>
+<ul>
+<li><p>O R em geral é instalado apenas com as configurações mínimas para seu funcionamento básico (pacote base);</p></li>
+<li><p>Para realizar tarefas mais complexas pode ser necessário instalar pacotes adicionais (packages ou library);</p></li>
+<li><p>O gerenciamento eficiente de pacotes é crucial no R. Isso inclui saber como instalar e atualizar pacotes, bem como gerenciar dependências.</p></li>
+<li><p>Além disso, é útil entender como usar o CRAN (Comprehensive R Archive Network) e repositórios como o Bioconductor para encontrar e instalar pacotes relacionados a IA.</p></li>
+</ul>
+</section>
+<section id="pacotes-de-machine-learning" class="level3" data-number="3.4.3">
+<h3 data-number="3.4.3" class="anchored" data-anchor-id="pacotes-de-machine-learning"><span class="header-section-number">3.4.3</span> <strong>Pacotes de Machine Learning</strong></h3>
+<ul>
+<li><p><code>caret</code> <span class="citation" data-cites="caret">(<a href="references.html#ref-caret" role="doc-biblioref">Kuhn and Max 2008</a>)</span>é um dos pacotes mais populares para machine learning no R. Ele oferece uma interface consistente para treinar modelos usando uma variedade de algoritmos de aprendizado.</p></li>
+<li><p>Outros pacotes relevantes incluem <code>randomForest</code> <span class="citation" data-cites="randomForest">(<a href="references.html#ref-randomForest" role="doc-biblioref">Liaw and Wiener 2002</a>)</span>para florestas aleatórias, <code>e1071</code> <span class="citation" data-cites="e1071">(<a href="references.html#ref-e1071" role="doc-biblioref">Meyer et al. 2023</a>)</span>para máquinas de vetores de suporte, e <code>nnet</code> <span class="citation" data-cites="nnet">(<a href="references.html#ref-nnet" role="doc-biblioref">W. N. Venables and Ripley 2002</a>)</span> para redes neurais .</p></li>
+</ul>
+</section>
+<section id="pacotes-para-aprendizado-profundo" class="level3" data-number="3.4.4">
+<h3 data-number="3.4.4" class="anchored" data-anchor-id="pacotes-para-aprendizado-profundo"><span class="header-section-number">3.4.4</span> <strong>Pacotes para Aprendizado Profundo</strong></h3>
+<ul>
+<li><p>Para quem está interessado em aprendizado profundo, pacotes como <code>keras</code> <span class="citation" data-cites="keras-2">(<a href="references.html#ref-keras-2" role="doc-biblioref">Allaire and Chollet 2023</a>)</span>e <code>tensorflow</code> <span class="citation" data-cites="tensorflow">(<a href="references.html#ref-tensorflow" role="doc-biblioref">Allaire and Tang 2023</a>)</span> permitem a construção e treinamento de modelos de redes neurais profundas no R.</p></li>
+<li><p>Esses pacotes oferecem a flexibilidade necessária para construir modelos complexos, embora possam exigir um entendimento mais aprofundado da estrutura e funcionamento das redes neurais.</p></li>
+</ul>
+</section>
+<section id="integração-e-expansão" class="level3" data-number="3.4.5">
+<h3 data-number="3.4.5" class="anchored" data-anchor-id="integração-e-expansão"><span class="header-section-number">3.4.5</span> <strong>Integração e Expansão</strong></h3>
+<ul>
+<li><p>O R pode ser expandido e integrado com outras ferramentas e plataformas. Por exemplo, a integração com Python através do pacote <code>reticulate</code> <span class="citation" data-cites="reticulate">(<a href="references.html#ref-reticulate" role="doc-biblioref">Ushey, Allaire, and Tang 2023</a>)</span> permite aos usuários acessar bibliotecas Python diretamente do R.</p></li>
+<li><p>Esta seção pode explorar como essas integrações podem ser configuradas e utilizadas, aumentando as capacidades do R em IA.</p></li>
+</ul>
+<p><strong>Ambientes Virtuais e Contêineres</strong></p>
+<ul>
+<li><p>Discutir a importância de ambientes virtuais, como o Renv, para manter projetos isolados e gerenciar dependências de maneira mais eficaz.</p></li>
+<li><p>Também pode ser relevante abordar o uso de contêineres, como Docker, para criar ambientes de desenvolvimento replicáveis e consistentes.</p></li>
+</ul>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-al2019applied" class="csl-entry" role="listitem">
+Al-Karkhi, A. F. M., and W. A. A. Alqaraghuli. 2019. <em>Applied Statistics for Environmental Science with r</em>. Elsevier Science.
+</div>
+<div id="ref-keras-2" class="csl-entry" role="listitem">
+Allaire, JJ, and François Chollet. 2023. <span>“Keras: R Interface to ’Keras’.”</span> <a href="https://CRAN.R-project.org/package=keras">https://CRAN.R-project.org/package=keras</a>.
+</div>
+<div id="ref-tensorflow" class="csl-entry" role="listitem">
+Allaire, JJ, and Yuan Tang. 2023. <span>“Tensorflow: R Interface to ’TensorFlow’.”</span> <a href="https://CRAN.R-project.org/package=tensorflow">https://CRAN.R-project.org/package=tensorflow</a>.
+</div>
+<div id="ref-chan2015" class="csl-entry" role="listitem">
+Chan, B. K. C. 2015. <em>Biostatistics for Epidemiology and Public Health Using r</em>. Springer Publishing Company.
+</div>
+<div id="ref-Donoho2017" class="csl-entry" role="listitem">
+Donoho, David. 2017. <span>“50 Years of Data Science.”</span> <em>Journal of Computational and Graphical Statistics</em> 26 (4): 745–66.
+</div>
+<div id="ref-Giorgie_etal2022" class="csl-entry" role="listitem">
+Giorgi, Federico M., Carmine Ceraolo, and Daniele Mercatelli. 2022. <span>“The r Language: An Engine for Bioinformatics and Data Science.”</span> <em>Life</em> 12 (5).
+</div>
+<div id="ref-Ihaka1998" class="csl-entry" role="listitem">
+Ihaka, Ross. 1998. <span>“R: Past and Future History.”</span> <em>Computing Science and Statistics</em> 30: 392–96.
+</div>
+<div id="ref-Ihaka_Ross1996" class="csl-entry" role="listitem">
+Ihaka, Ross, and Robert Gentleman. 1996. <em>R: A Language for Data Analysis and Graphics</em>. <em>Journal of Computational and Graphical Statistics</em>. Vol. 5. 3. Taylor &amp; Francis.
+</div>
+<div id="ref-James2013" class="csl-entry" role="listitem">
+James, Gareth, Daniela Witten, Trevor Hastie, and Robert Tibshirani. 2023. <em>An Introduction to Statistical Learning: With Applications in r</em>. 2nd ed. Springer.
+</div>
+<div id="ref-kalyan2018" class="csl-entry" role="listitem">
+Kalyan, Sudhaka. 2018. <span>“Python Vs. R Programming Language.”</span> <em>International Journal of Management, IT and Engineering</em> 8 (8): 70–79.
+</div>
+<div id="ref-caret" class="csl-entry" role="listitem">
+Kuhn, and Max. 2008. <span>“Building Predictive Models in r Using the Caret Package.”</span> <em>Journal of Statistical Software</em> 28 (5): 1–26. <a href="https://doi.org/10.18637/jss.v028.i05">https://doi.org/10.18637/jss.v028.i05</a>.
+</div>
+<div id="ref-lawson2014" class="csl-entry" role="listitem">
+Lawson, J. 2014. <em>Design and Analysis of Experiments with r</em>. Chapman &amp; Hall/CRC Texts in Statistical Science. CRC Press.
+</div>
+<div id="ref-randomForest" class="csl-entry" role="listitem">
+Liaw, Andy, and Matthew Wiener. 2002. <span>“Classification and Regression by randomForest”</span> 2: 18–22. <a href="https://CRAN.R-project.org/doc/Rnews/">https://CRAN.R-project.org/doc/Rnews/</a>.
+</div>
+<div id="ref-e1071" class="csl-entry" role="listitem">
+Meyer, David, Evgenia Dimitriadou, Kurt Hornik, Andreas Weingessel, and Friedrich Leisch. 2023. <span>“E1071: Misc Functions of the Department of Statistics, Probability Theory Group (Formerly: E1071), TU Wien.”</span> <a href="https://CRAN.R-project.org/package=e1071">https://CRAN.R-project.org/package=e1071</a>.
+</div>
+<div id="ref-ohri2017" class="csl-entry" role="listitem">
+Ohri, A. 2017. <em>Python for r Users: A Data Science Approach</em>. Wiley.
+</div>
+<div id="ref-paradis2020" class="csl-entry" role="listitem">
+Paradis, E. 2020. <em>Population Genomics with r</em>. CRC Press.
+</div>
+<div id="ref-rprojectconferences" class="csl-entry" role="listitem">
+R Project. 2023a. <span>“Conferences on r.”</span> <a href="https://www.r-project.org/conferences/" class="uri">https://www.r-project.org/conferences/</a>.
+</div>
+<div id="ref-rprojecthelp" class="csl-entry" role="listitem">
+———. 2023b. <span>“Help on r.”</span> <a href="https://www.r-project.org/help.html" class="uri">https://www.r-project.org/help.html</a>.
+</div>
+<div id="ref-singh2016r" class="csl-entry" role="listitem">
+Singh, A. K., and D. E. Allen. 2016. <em>R in Finance and Economics: A Beginner’s Guide</em>. World Scientific Publishing Company.
+</div>
+<div id="ref-stackoverflowRlang" class="csl-entry" role="listitem">
+Stack Overflow. 2023. <span>“R Language Collective on Stack Overflow.”</span> <a href="https://stackoverflow.com/collectives/r-language" class="uri">https://stackoverflow.com/collectives/r-language</a>.
+</div>
+<div id="ref-Tahsin2020" class="csl-entry" role="listitem">
+Tahsin, Anika, and Md. Manzurul Hasan. 2020. <span>“Big Data &amp; Data Science: A Descriptive Research on Big Data Evolution and a Proposed Combined Platform by Integrating r and Python on Hadoop for Big Data Analytics and Visualization.”</span> In <em>Proceedings of the International Conference on Computing Advancements</em>. ICCA 2020. New York, NY, USA: Association for Computing Machinery.
+</div>
+<div id="ref-tippmann2015" class="csl-entry" role="listitem">
+Tippmann, Sylvia. 2015. <span>“Programming Tools: Adventures with r.”</span> <em>Nature</em> 517: 109–10.
+</div>
+<div id="ref-tuffery2023" class="csl-entry" role="listitem">
+Tuffery, S. 2023. <span>“Deep Learning: From Big Data to Artificial Intelligence with r: Deep Learning for Natural Language Processing.”</span>
+</div>
+<div id="ref-reticulate" class="csl-entry" role="listitem">
+Ushey, Kevin, JJ Allaire, and Yuan Tang. 2023. <span>“Reticulate: Interface to ’Python’.”</span> <a href="https://CRAN.R-project.org/package=reticulate">https://CRAN.R-project.org/package=reticulate</a>.
+</div>
+<div id="ref-nnet" class="csl-entry" role="listitem">
+Venables, W. N., and B. D. Ripley. 2002. <span>“Modern Applied Statistics with s.”</span> <a href="https://www.stats.ox.ac.uk/pub/MASS4/">https://www.stats.ox.ac.uk/pub/MASS4/</a>.
+</div>
+<div id="ref-venables2013s" class="csl-entry" role="listitem">
+Venables, W., and B. D. Ripley. 2013. <em>S Programming</em>. Statistics and Computing. Springer New York.
+</div>
+<div id="ref-wickham2016" class="csl-entry" role="listitem">
+Wickham, H., and G. Grolemund. 2016. <em>R for Data Science: Import, Tidy, Transform, Visualize, and Model Data</em>. O’Reilly Media.
+</div>
+</div>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./cap2.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Estatística, Machine Learning e IA</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./cap4.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Aplicações Básicas e Intermediárias em IA com R</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>

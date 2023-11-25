@@ -1,0 +1,594 @@
+# Aplicações Básicas e Intermediárias em IA com R
+
+Este capítulo apresenta uma visão abrangente das aplicações práticas da Inteligência Artificial (IA) utilizando o R. Cobrindo desde técnicas básicas até métodos intermediários, ele oferece aos leitores uma base sólida em teoria e prática. Os tópicos incluem Regressão Linear e Logística, Árvores de Decisão e Florestas Aleatórias, além de uma introdução a Redes Neurais. O capítulo também discute as tendências e avanços recentes em Machine Learning, proporcionando aos leitores insights sobre as futuras inovações no campo da IA.
+
+## **Regressão Linear**
+
+A regressão linear é um método fundamental tanto em estatística quanto em machine learning. Ela é utilizada para modelar a relação entre uma variável de saída (dependente) contínua e uma ou mais variáveis de entrada (independentes). Esse método estabelece uma equação linear que descreve a relação entre essas variáveis, permitindo a previsão de valores da variável de saída com base em novos dados de entrada. Apesar de sua simplicidade, a regressão linear é uma ferramenta poderosa para análises preditivas e é frequentemente o ponto de partida para muitos estudos e análises em diversos campos [@zbicki2020; @James2013; @burger2018].
+
+**Conceito: A ideia central da regressão linear é encontrar a melhor reta (ou, em casos de múltiplas variáveis independentes, um plano ou hiperplano) que se ajuste aos dados observados.**
+
+A reta (plano ou hiperplano) é obtida minimizando a diferença entre os valores reais observados nos dados e os valores previstos pelo modelo. Essa minimização geralmente é realizada através do método dos mínimos quadrados, buscando reduzir a soma dos quadrados das diferenças entre os valores observados e os previstos. Esse método fornece uma maneira eficiente de estimar os coeficientes do modelo linear, oferecendo uma previsão confiável baseada nas variáveis independentes [@singh2016r; @zbicki2020].
+
+A regressão linear é valiosa tanto para **visualizar tendências** quanto para **fazer previsões**. Ao ajustar uma linha a um conjunto de pontos de dados, ela facilita a **visualização** e a **compreensão** da relação entre as variáveis. Esta técnica se torna especialmente útil em grandes conjuntos de dados, onde pode ser desafiador identificar padrões. Por meio da regressão linear, torna-se mais simples discernir a relação entre variáveis, proporcionando informações que podem guiar análises mais profundas e decisões baseadas em dados [@singh2016r; @zbicki2020]:
+
+-   **Interpretação Gráfica:** A linha de regressão em um gráfico oferece uma interpretação visual imediata da relação entre as variáveis. Por exemplo, uma linha de regressão ascendente indica uma relação positiva, significando que à medida que uma variável aumenta, a outra também tende a aumentar.
+
+-   **Identificação de Anomalias:** Além de revelar tendências, a regressão linear ajuda a identificar outliers ou anomalias nos dados, que são pontos significativamente afastados da linha de regressão.
+
+As aplicações práticas da regressão linear são vastas, abrangendo áreas como economia, meteorologia, saúde e mais, fornecendo previsões valiosas e insights para tomadas de decisão [@singh2016r; @zbicki2020].
+
+-   **Previsões Baseadas em Dados:** Ao ajustar um modelo de regressão linear, é obtido uma equação que pode ser usada para fazer previsões. Por exemplo, em um modelo de regressão linear simples, essa equação pode ter a forma $y=mx+b$, em quende $y$ é a variável de sáida (dependente), $x$ é a variável de entrada (independente), $m$ é a inclinação e $b$ é o intercepto da linha de regressão.
+
+-   **Aplicações Práticas:** As previsões têm inúmeras aplicações práticas em diversos campos, como economia (previsão de tendências de mercado), meteorologia (previsão de temperaturas futuras), saúde (previsão de taxas de recuperação de pacientes), entre muitos outros.
+
+Ao trabalhar com regressão linear, é crucial considerar alguns aspectos importantes [@singh2016r; @chan2015]:
+
+-   **Qualidade dos Dados:** A eficácia da regressão linear está diretamente relacionada à qualidade dos dados utilizados. Dados imprecisos, incompletos ou com erros podem resultar em previsões falhas ou enganosas.
+
+-   **Relações Lineares:** A regressão linear é ideal para situações em que a relação entre as variáveis é de fato linear. Se a relação for não-linear, modelos de regressão linear podem não ser adequados. Nestes casos podem ser aplicados modelos de regressão não linear e outras técnicas de machine learning podem ser mais apropriadas.
+
+-   **Relações Lineares**: A regressão linear é ideal para situações onde há uma relação linear entre as variáveis .Em cenários onde essa relação é não-linear a aplicação de modelos de regressão não linear ou outras técnicas de machine learning pode ser mais apropriada, permitindo uma modelagem mais precisa das complexidades inerentes aos dados.
+
+-   **Causalidade vs. Correlação:** É importante lembrar que a regressão linear por si só não implica causalidade. Ela pode identificar correlações entre variáveis, mas isso não implica uma relação de causa e efeito direta.
+
+### **Exemplo Prático**
+
+#### Ajuste de modelo de regressão
+
+Vamos considerar um conjunto de dados hipotético que representa uma cidade durante um verão particularmente quente. O objetivo é analisar a relação entre a temperatura média diária (em graus Celsius) e o consumo total diário de energia elétrica (em megawatts-hora). Espera-se que essa relação seja aproximadamente linear, com o consumo de energia aumentando à medida que as temperaturas se tornam mais altas.
+
+Para ilustras, vamos gerar alguns dados simulados em R para representar esta situação:
+
+```{r, message=FALSE, warning=FALSE}
+library(tidyverse)
+set.seed(123)  # Semente de numeros aleatorios para reprodutibilidade 
+temperatura <- 25:45  # Temperatura variando de 25 a 45 graus Celsius 
+consumo_energia <- 50 + 2.5 * temperatura + rnorm(21, mean = 0, sd = 5) 
+dados <- data.frame(temperatura, consumo_energia)
+```
+
+Vamos ajustar um modelo de regressão linear e visualizá-lo com pacote `ggplot2`[@ggplot2] :
+
+```{r, message=FALSE, warning=FALSE}
+modelo <- lm(consumo_energia ~ temperatura, data = dados)
+summary(modelo)
+ggplot(dados, aes(x = temperatura, y = consumo_energia)) +
+geom_point() +
+geom_smooth(method = "lm", se = FALSE) +
+theme_minimal() +
+labs(title = "Relação entre Temperatura e Consumo de Energia",
+     x = "Temperatura Média Diária (°C)",
+     y = "Consumo de Energia (MWh)")
+```
+
+Neste exemplo, o modelo de regressão é representado pela equação $y=2.35+55.59$ e ilustrado pela linha no gráfico, destacando a relação entre temperatura e consumo de energia. Os pontos no gráfico representam os dados observados, enquanto a linha demonstra a tendência geral. Isso sugere que existe uma correlação positiva entre o aumento da temperatura e o aumento no consumo de energia, com a linha de regressão oferecendo uma visualização clara dessa tendência.
+
+#### **Aplicação de Modelos de Regressão Linear para Previsões**
+
+Utilizando o mesmo exemplo da relação entre temperatura e consumo de energia, agora vamos explorar como o modelo de regressão linear pode ser usado para fazer previsões. O objetivo é estimar o consumo de energia com base na temperatura.\
+\
+Primeiro, ajustamos o modelo de regressão linear, como fizemos anteriormente:
+
+```{r, message=FALSE, warning=FALSE}
+modelo <- lm(consumo_energia ~ temperatura, data = dados)
+```
+
+Com o modelo ajustado, podemos usar a função `predict()` predict() para fazer previsões. Por exemplo, se quisermos prever o consumo de energia para uma temperatura de 25.5, 28.2, 30, 38.5 graus Celsius, fazemos o seguinte:
+
+```{r, message=FALSE, warning=FALSE}
+temperatura_nova <- data.frame(temperatura = c(25.5,28.2,30,38.5))
+previsao_consumo <- predict(modelo, newdata = temperatura_nova)
+previsao_consumo
+```
+
+Isso nos dará a previsão de consumo de energia para a temperatura especificada.\
+\
+É útil visualizar as previsões juntamente com os dados originais e a linha de regressão. Isso pode ser feito ajustando o gráfico que criamos anteriormente:
+
+```{r, message=FALSE, warning=FALSE}
+dados1=cbind(temperatura_nova,previsao_consumo)
+
+ggplot(dados, aes(x = temperatura, y = consumo_energia)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE)  +
+  geom_point(data=dados1,aes(x =temperatura, y = previsao_consumo), 
+             colour = "red",size=3)+
+   theme_minimal() +
+  labs(title = "Previsão de Consumo de Energia com Regressão Linear",
+       x = "Temperatura Média Diária (°C)",
+       y = "Consumo de Energia (MWh)")
+
+
+```
+
+No gráfico, o ponto vermelho representa a previsão de consumo de energia para a temperatura especificada.
+
+## Regressão Logística {#sec-regressão-logística}
+
+A regressão logística é uma técnica estatística usada para modelar a probabilidade de ocorrência de um evento, categorizando o resultado em classes. Esta técnica é empregada para variáveis dependentes categóricas binárias, como "sim" ou "não", e "sucesso" ou "fracasso". Ela difere da regressão linear, que prevê valores contínuos, ao estimar a probabilidade de um evento ocorrer, baseando-se em um ou mais preditores. A regressão logística é particularmente útil em classificadores de aprendizado de máquina, sendo um componente chave dos modelos lineares generalizados[@zbicki2020; @James2013; @burger2018].
+
+A regressão logística, utilizada no contexto de classificadores, pode ser expressa matematicamente para uma classe binária da seguinte maneira:
+
+$$
+ Y_i = 1 \Rightarrow P( Y_i=1)=\pi_i\\  Y_i = 0 \Rightarrow P( Y_i=0)=1-\pi_i\\
+$$
+
+O modelo de regressão logistica é dado por: $$
+\pi(X)=\frac{e^{\beta_0+\beta_1X_1+\beta_2X_2+...+\beta_mX_m}}{1+e^{\beta_0+\beta_1X_1+\beta_2X_2+...+\beta_mX_m}}
+$$
+
+em que $X$ representa o conjunto de atributos ou variáveis de entrada.
+
+Ao trabalhar com regressão logística, é crucial considerar aspectos importantes como:
+
+-   **Relação entre Variáveis**: Este método é eficaz quando há uma relação clara entre as variáveis independentes e a variável dependente binária. As variáveis independentes podem ser categóricas ou quantitativas, mas para variáveis quantitativas, é importante verificar se existe uma relação log-log.
+
+-   **Multicolinearidade**: É essencial evitar alta correlação entre as variáveis independentes, pois isso pode comprometer a interpretação dos coeficientes do modelo.
+
+-   **Avaliação do Modelo**: Para avaliar a precisão e eficácia do modelo, deve-se usar métricas apropriadas, como a área sob a curva ROC (AUC).
+
+### **Exemplo Prático** {#sec-exemplo-prático}
+
+**Implementação no R**
+
+No R, a função `glm()` com a família binomial é comumente usada para realizar regressão logística.
+
+Para ilustrar a utilização da regressão logistica, vamos utilizar o conjunto de dados **`PimaIndiansDiabetes2`** pacote mlbench [@mlbench]. Este conjunto de dados contém informações de testes de diabetes coletadas de mulheres com pelo menos 21 anos, de herança indígena Pima e residentes próximas a Phoenix, Arizona, totalizando 768 observações em 9 variáveis
+
+-   pregnant: Número de vezes grávida.
+
+-   glucose: Concentração de glicose plasmática (teste de tolerância à glicose).
+
+-   pressure: Pressão arterial diastólica (mm Hg).
+
+-   triceps: Espessura da dobra da pele do tríceps (mm).
+
+-   insulin: Insulina sérica de 2 horas (mu U/ml).
+
+-   mass: Índice de massa corporal (peso em kg/(altura em m)\^2).
+
+-   pedigree: Função de pedigree de diabetes.
+
+-   age: Idade (anos).
+
+-   diabetes: Fator indicando o resultado do teste de diabetes (neg/pos)
+
+O conjunto de dados **`PimaIndiansDiabetes2`** contém informações incompletas para alguns indivíduos, ou seja, nem todas as variáveis foram observadas em todos os casos. Portanto, vamos optar por trabalhar apenas com os dados completos, o que reduz o conjunto a 392 observações. Essa abordagem nos permite realizar análises mais precisas e confiáveis, focando em dados onde todas as variáveis estão presentes.
+
+Pacotes Necessários
+
+```{r, message=FALSE, warning=FALSE}
+library(tidyverse)
+library(caret)
+```
+
+Prepararando os dados
+
+```{r,message=FALSE, warning=FALSE}
+#Ler os dados e remover os NA
+data("PimaIndiansDiabetes2", package = "mlbench")
+PimaIndiansDiabetes2 <- na.omit(PimaIndiansDiabetes2)
+# Inspecionar os dados
+sample_n(PimaIndiansDiabetes2, 3)
+# Dividir o conjuntos de dados em treino e teste
+set.seed(123)
+training.samples <- PimaIndiansDiabetes2$diabetes %>% 
+  createDataPartition(p = 0.8, list = FALSE)
+train.data  <- PimaIndiansDiabetes2[training.samples, ]
+test.data <- PimaIndiansDiabetes2[-training.samples, ]
+```
+
+#### Regressão Logística Simples
+
+A regressão logística simples é usada para prever a probabilidade de pertencer a uma classe com base em apenas uma variável preditora.
+
+O seguinte código R constrói um modelo para prever a probabilidade de ser positivo para diabetes com base na concentração de glicose plasmática:
+
+```{r,message=FALSE, warning=FALSE}
+model <- glm( diabetes ~ glucose, data = train.data, family = binomial)
+summary(model)
+
+```
+
+O resultado apresenta a estimativa dos coeficientes beta da regressão e seus níveis de significância. O intercepto ($\beta_0=-6,15$) e o coeficiente da variável glicose \$\beta\_1= 0,043\$.
+
+A equação logística pode ser escrita como
+
+$$
+\pi(X)=\frac{e^{-6,15+0,043Glucose}}{1+e^{-6,15+0,043Glucose}}
+$$
+
+Usando esta fórmula, para cada novo valor de concentração de glicose plasmática, é possível prever a probabilidade de os indivíduos serem positivos para diabetes.
+
+```{r,message=FALSE, warning=FALSE}
+train.data %>%
+  mutate(prob = ifelse(diabetes == "pos", 1, 0)) %>%
+  ggplot(aes(glucose, prob)) +
+  geom_point(alpha = 0.2) +
+  geom_smooth(method = "glm", method.args = list(family = "binomial")) +
+  labs(
+    x = "Concentração de glicose plasmática",
+    y = "Probability de diabestes positiva"
+    )
+```
+
+Podemos avaliar a capacidade preditiva do modelo utilizando os dados que ele já conhece através do seguinte processo no R:
+
+```{r,message=FALSE, warning=FALSE}
+# Predições
+probabilities <- model %>% 
+                  predict(type = "response")
+predicted.classes <- ifelse(probabilities > 0.5, "pos", "neg")
+# Avaliando a acurácia
+mean(predicted.classes == train.data$diabetes)
+```
+
+O resultado apresenta uma acurácia de 0,7611 para os dados de treinamento, , indica que o modelo é eficaz em classificar corretamente se um indivíduo tem ou não diabetes.
+
+Podemos avaliar o modelo com os dados de teste, que são novos para o modelo ou seja desconhecidos.
+
+```{r,message=FALSE, warning=FALSE}
+# Prediçõess
+probabilities <- model %>% 
+                predict(test.data, type = "response")
+predicted.classes <- ifelse(probabilities > 0.5, "pos", "neg")
+# Avaliando a acurácia
+mean(predicted.classes == test.data$diabetes)
+
+```
+
+Ao aplicar o modelo aos dados de teste, que são novos para o modelo, obtemos uma acurácia de 0,7692. Isso sugere que o modelo mantém uma boa performance geral também para dados que não foram usados no treinamento, demonstrando sua eficiência e capacidade de generalização.
+
+#### Regressão Logística Multipla
+
+A regressão logística multipla é usada para prever a probabilidade de pertencer a uma classe com base em múltiplas variáveis preditoras.
+
+O seguinte código R constrói um modelo para prever a probabilidade de ser positivo para diabetes com base na concentração de glicose plasmática, número de vezes grávida e índice de massa corporal :
+
+```{r,message=FALSE, warning=FALSE}
+model <- glm( diabetes ~ glucose+  pregnant+mass, data = train.data, family = binomial)
+summary(model)
+```
+
+O resultado apresenta a estimativa dos coeficientes beta da regressão e seus níveis de significância. O intercepto ($\beta_0=-9,32$), o coeficiente da variável glicose \$\beta\_1= 0,038\$, o coeficiente da variável número de vezes grávida \$\beta\_2= 0,144\$ e o coeficiente da variável índice de massa corporal \$\beta\_3= 0,094\$
+
+A equação logística pode ser escrita como
+
+$$ \pi(X)=\frac{e^{-9,32+0,038Glucose+0,144pregnant+0,094mass}}{1+e^{-9,32+0,038Glucose+0,144pregnant+0,094mass}} $$
+
+Avaliando a capacidade preditiva do com os dados de treino e teste:
+
+```{r,message=FALSE, warning=FALSE}
+# Predições conjunto de treinamento
+probabilities <- model %>%
+       predict(type = "response") 
+predicted.classes <- ifelse(probabilities > 0.5, 
+                            "pos", "neg") 
+# Avaliando a acurácia 
+mean(predicted.classes == train.data$diabetes)
+
+#Prediçõess
+probabilities1 <- model %>%                 
+  predict(test.data, type = "response") 
+predicted.classes1 <- ifelse(probabilities1 > 0.5, "pos", "neg") 
+# Avaliando a acurácia 
+mean(predicted.classes1 == test.data$diabetes) 
+```
+
+O resultado, com uma acurácia de 0,7866 para os dados de treinamento e 0,7820 para os dados de teste, indica que o modelo de regressão logística múltipla tem uma boa capacidade de generalização. Além disso, a acurácia mais alta do modelo múltiplo em comparação com o modelo simples sugere uma melhoria na performance preditiva ao incluir múltiplas variáveis preditoras.
+
+## **Árvores de Decisão**
+
+As árvores de decisão são um método gráfico e analítico que subdivide uma amostra inicial em subamostras, formando grupos onde a variável de resposta apresenta comportamento homogêneo internamente e heterogêneo entre eles. Este algoritmo de aprendizado de máquina supervisionado é aplicável tanto para classificação quanto para regressão, ou seja, pode prever tanto categorias discretas (como "sim" ou "não") quanto valores numéricos [@singh2016r; @zbicki2020]:.
+
+Funcionando de maneira semelhante a um fluxograma , as árvores de decisão têm nós de decisão interconectados hierarquicamente, incluindo um nó-raiz principal e nós-folha que representam os resultados finais. No machine learning, o nó-raiz corresponde a um atributo da base de dados, enquanto o nó-folha indica a classe ou valor a ser previsto [@singh2016r; @zbicki2020].
+
+![Exemplo de um esquema de arvore de decisão](imagens/arvore.jpg){#fig1 fig-align="center" width="20cm"}
+
+Existem diversos algoritmos para a criação de árvores de decisão, sendo os mais comuns:
+
+-   **CHAID (Chi-square Automatic Interaction Detection)**: Este algoritmo é mais comumente usado para tarefas de classificação.Utiliza tabelas de contingência para identificar as melhores divisões.
+
+-   **CART (Classification and Regression Trees):** Um dos algoritmos mais versáteis, o CART é utilizado tanto para regressão quanto para classificação. Sua abordagem binária para dividir os nós permite uma ampla gama de aplicações.
+
+-   **ID3 (Iteractive Dichotomizer 3):** Geralmente aplicado em tarefas de classificação, mas existem versões para regressão, o ID3 seleciona atributos com base no Ganho de Informação, escolhendo aqueles que mais reduzem a incerteza no conjunto de dados.
+
+-   **C4.5**: Uma evolução do ID3, o C4.5 inclui melhorias como o tratamento de dados contínuos e valores ausentes, mantendo a abordagem baseada em Ganho de Informação.
+
+Árvores de decisão são particularmente úteis quando se deseja trabalhar com dados sem a necessidade de um tratamento extensivo. Elas lidam bem com valores atípicos e dados faltantes, reduzindo a necessidade de etapas de tratamento intensivo. Além disso, não é necessário converter dados categóricos para numéricos, pois este algoritmo lida eficientemente com informações nominais. Em situações que envolvem problemas tanto de classificação quanto de regressão, as árvores de decisão oferecem flexibilidade e eficácia, tornando-se uma escolha adequada para uma variedade de cenários analíticos.
+
+### **Exemplo Prático**
+
+**Implementação no R**
+
+Para ilustrar a utilização arvore de decisão, vamos utilizar o conjunto de dados **`PimaIndiansDiabetes2`** pacote mlbench [@mlbench], apresentado na seção anterior.
+
+Pacotes Necessários
+
+```{r, message=FALSE, warning=FALSE}
+library(tidyverse) 
+library(caret)
+library(rpart)
+library(rpart.plot)
+```
+
+Prepararando os dados,
+
+```{r,message=FALSE, warning=FALSE}
+#Ler os dados e remover os NA
+data("PimaIndiansDiabetes2", package = "mlbench")
+PimaIndiansDiabetes2 <- na.omit(PimaIndiansDiabetes2)
+# Inspecionar os dados
+sample_n(PimaIndiansDiabetes2, 3)
+# Dividir o conjuntos de dados em treino e teste
+set.seed(123)
+training.samples <- PimaIndiansDiabetes2$diabetes %>% 
+  createDataPartition(p = 0.8, list = FALSE)
+train.data  <- PimaIndiansDiabetes2[training.samples, ]
+test.data <- PimaIndiansDiabetes2[-training.samples, ]
+```
+
+O seguinte código R constrói um modelo de árvore de decisão para prever se um indivíduo é positivo para diabetes com base em todas as variáveis preditoras disponíveis no conjunto de dados. Isso é realizado utilizando o operador **`~`** para incluir todas as variáveis preditoras:
+
+```{r,message=FALSE, warning=FALSE}
+tree_model <- rpart(
+  diabetes ~.,  data = train.data,   method = "class"
+)
+summary(tree_model)
+```
+
+Este código produz um resumo detalhado do modelo de árvore de decisão, que pode ser complexo de analisar. Para facilitar a visualização, podemos representar graficamente a árvore construída:
+
+```{r,message=FALSE, warning=FALSE}
+prp(tree_model)
+```
+
+Este passo permite visualizar a estrutura da árvore de decisão de forma mais intuitiva e compreensível.
+
+Por padrão, o **`rpart`** usa a impureza de Gini para selecionar divisões ao realizar classificação. (Se você não está familiarizado, leia este artigo.) Você pode usar o ganho de informação em vez disso, especificando-o no parâmetro **`parms`**.
+
+```{r,message=FALSE, warning=FALSE}
+tree_model1 <- rpart(diabetes ~.,data = train.data,method = "class",
+  parms = list(split = 'information')
+)
+
+prp(tree_model1)
+```
+
+Podemos avaliar a capacidade preditiva do com os dados de treino e teste, utilizando os dados que ele já conhece através do seguinte processo no R:
+
+```{r,message=FALSE, warning=FALSE}
+# Predições de treinamento
+class <- predict(tree_model1,type = 'class')
+confusionMatrix(class, train.data$diabetes,positive='pos')
+
+# Predições de teste
+class1 <- predict(tree_model1,test.data,type = 'class')
+confusionMatrix(class1, test.data$diabetes,positive='pos')
+```
+
+O resultado, com uma acurácia de 0,8758para os dados de treinamento e 0,7436para os dados de teste, indica que o modelo de regressão logística múltipla tem uma boa capacidade de generalização. Além disso, outras medidas de performance do modelo apresentam valores elevados.
+
+## Floresta Aleatória
+
+Floresta Aleatória é um algoritmo de aprendizado supervisionado que cria uma "floresta" de forma aleatória. Essa floresta é na verdade um conjunto de árvores de decisão, geralmente treinadas com o método de bagging. A ideia por trás do bagging é que a combinação de vários modelos de aprendizado melhora o desempenho geral.
+
+As Florestas Aleatórias funcionam ao criar numerosas árvores de decisão aleatoriamente, cada uma contribuindo para a decisão final. Uma grande vantagem desse algoritmo é sua aplicabilidade tanto em tarefas de classificação quanto de regressão, sendo muito relevante nos sistemas de aprendizado de máquina atuais. No contexto de classificação, as Florestas Aleatórias são consideradas um dos pilares do aprendizado de máquina. Um exemplo clássico de Floresta Aleatória pode incluir diversas árvores, cada uma contribuindo para a classificação ou previsão final.
+
+**Diferenças entre Árvore de Decisão e Florestas Aleatórias**
+
+Floresta Aleatória e Árvore de Decisão são métodos de aprendizado de máquina, mas com diferenças significativas. Enquanto a Árvore de Decisão utiliza regras e nodos baseados em cálculos como ganho de informação e índice de Gini, a Floresta Aleatória opera de maneira aleatória e é uma coleção de várias árvores. Uma Árvore de Decisão única pode sofrer de sobreajuste, especialmente se for muito profunda. Em contraste, as Florestas Aleatórias minimizam o sobreajuste ao construir várias árvores menores a partir de subconjuntos aleatórios de características, combinando-as posteriormente. Este processo pode tornar as Florestas Aleatórias mais lentas, dependendo do número de árvores construídas.
+
+**Algoritmo para Florestas Aleatórias**
+
+O algoritmo das Florestas Aleatórias (Random Forest) funciona da seguinte maneira:
+
+-   Gerar $B$ amostras bootstrap com reposição do conjunto de dados original.
+
+-   Para cada amostra bootstrap, criar uma árvore de decisão:
+
+    -   Em cada nó, é sorteado $M$ atributos dentre os quais a divisão será realizada.
+
+    -   A árvore é construída sem ser podada.
+
+-   Cada árvore gera um resultado, e a classificação/regressão final é determinada pelo resultado mais frequente entre todas as árvores.
+
+![Exemplo de floresta aleatória](imagens/Floresta.jpg){width="20cm"}
+
+### **Exemplo Prático**
+
+**Implementação no R**
+
+Para ilustrar a utilização arvore de decisão, vamos utilizar o conjunto de dados **`PimaIndiansDiabetes2`** pacote mlbench [@mlbench], apresentado na seção anterior.
+
+Pacotes Necessários
+
+```{r, message=FALSE, warning=FALSE}
+library(tidyverse)  
+library(caret) 
+library(randomForest)
+```
+
+Prepararando os dados,
+
+```{r,message=FALSE, warning=FALSE}
+#Ler os dados e remover os NA
+data("PimaIndiansDiabetes2", package = "mlbench")
+PimaIndiansDiabetes2 <- na.omit(PimaIndiansDiabetes2)
+# Inspecionar os dados
+sample_n(PimaIndiansDiabetes2, 3)
+# Dividir o conjuntos de dados em treino e teste
+set.seed(123)
+training.samples <- PimaIndiansDiabetes2$diabetes %>% 
+  createDataPartition(p = 0.8, list = FALSE)
+train.data  <- PimaIndiansDiabetes2[training.samples, ]
+test.data <- PimaIndiansDiabetes2[-training.samples, ]
+```
+
+O seguinte código R constrói um modelo de árvore de decisão para prever se um indivíduo é positivo para diabetes com base em todas as variáveis preditoras disponíveis no conjunto de dados. Isso é realizado utilizando o operador **`~`** para incluir todas as variáveis preditoras:
+
+```{r,message=FALSE, warning=FALSE}
+rf_model <- randomForest( diabetes ~.,  data = train.data)
+print(rf_model)
+
+```
+
+Podemos avaliar a capacidade preditiva do com os dados de treino e teste, utilizando os dados que ele já conhece através do seguinte processo no R:
+
+```{r,message=FALSE, warning=FALSE}
+#Conjunto de treino
+class <- predict(rf_model)
+confusionMatrix(class, train.data$diabetes,positive='pos')
+
+#Conjunto de teste
+class1 <- predict(rf_model,test.data)
+confusionMatrix(class1,test.data$diabetes,positive='pos')
+```
+
+O resultado, com uma acurácia de 0,8758 para os dados de treinamento e 0,7436para os dados de teste, indica que o modelo de regressão logística múltipla tem uma boa capacidade de generalização. Além disso, outras medidas de performance do modelo apresentam valores elevados.
+
+## Introdução ao CARET
+
+O pacote **`caret`** [@caret] (**C**lassification **A**nd **RE**gression **T**raining) no R é uma ferramenta valiosa para simplificar o treinamento de modelos em problemas complexos de regressão e classificação. Este pacote integra diversos outros pacotes do R, mas é projetado para carregá-los conforme a necessidade, evitando o carregamento de todos eles na inicialização. Isso reduz significativamente o tempo de inicialização do pacote e melhora a eficiência. O **`caret`** assume que os pacotes necessários estão instalados e, caso algum pacote de modelagem esteja faltando, ele notifica o usuário para instalá-lo. Sua popularidade se deve à sua capacidade de simplificar as etapas de treinamento e teste de modelos preditivos. Para exemplos detalhados de como utilizar o **`caret`**, pode-se visitar a página oficial: [Caret Package](https://topepo.github.io/caret/).
+
+O pacote **`caret`** no R oferece uma ampla gama de ferramentas para a preparação de dados, essencial para o sucesso dos modelos de machine learning. Ele facilita a normalização e padronização de dados, o que é crucial para métodos que são sensíveis à escala das variáveis. Além disso, o **`caret`** pode tratar dados faltantes, realizar a binarização de variáveis categóricas e a seleção de variáveis, ajudando a melhorar a eficiência e a eficácia dos modelos. Esses recursos tornam o **`caret`** uma escolha excelente para o preprocessamento de dados antes da aplicação de técnicas de aprendizado de máquina.
+
+O **`caret`** proporciona uma interface unificada para uma ampla gama de modelos de machine learning, permitindo aos usuários aplicar diversos métodos e técnicas com uma sintaxe consistente. Isso inclui desde modelos lineares até técnicas avançadas de ensemble.
+
+### Treinamento de modelos
+
+Para ilustrar o treinamento de modelos no pacote **`caret`** , vamos utilizar o conjunto de dados **`PimaIndiansDiabetes2`** pacote `mlbench` [@mlbench], apresentado na seção anterior e vamos obter um modelo de arvore de decisão.
+
+Uma das funções centrais do pacote **`caret`** é a **`train()`**, que é essencial para a construção de modelos de machine learning. Esta função automatiza o processo de treinamento, incorporando técnicas como validação cruzada e otimização de parâmetros. Ao usar a **`train()`**, o usuário pode aplicar diversos algoritmos aos dados, resultando em modelos bem treinados e prontos para serem testados e usados em previsões. A função **`train`** também facilita a comparação do desempenho de diferentes algoritmos, tornando-a uma ferramenta valiosa para a seleção de modelos adequados.
+
+Pacotes Necessários
+
+```{r, message=FALSE, warning=FALSE}
+library(tidyverse)   
+library(caret)  
+library(rpart.plot)
+```
+
+Prepararando os dados,
+
+```{r,message=FALSE, warning=FALSE}
+#Ler os dados e remover os NA
+data("PimaIndiansDiabetes2", package = "mlbench")
+PimaIndiansDiabetes2 <- na.omit(PimaIndiansDiabetes2)
+# Inspecionar os dados
+sample_n(PimaIndiansDiabetes2, 3)
+# Dividir o conjuntos de dados em treino e teste
+set.seed(123)
+training.samples <- PimaIndiansDiabetes2$diabetes %>% 
+  createDataPartition(p = 0.8, list = FALSE)
+train.data  <- PimaIndiansDiabetes2[training.samples, ]
+test.data <- PimaIndiansDiabetes2[-training.samples, ]
+```
+
+Treinar o modelo
+
+```{r,message=FALSE, warning=FALSE}
+tree_model <- train(diabetes ~.,  data = train.data,   method =  "rpart")
+
+#Resultados do modelo
+tree_model$results
+tree_model$bestTune
+tree_model$metric
+
+#Plotar a arvore obtida
+m=tree_model$finalModel
+prp(m, box.palette = "Reds", tweak = 1.2)
+```
+
+O **`tuneGrid`** é uma funcionalidade importante do pacote **`caret`** no R, utilizada para otimizar os hiperparâmetros de modelos de machine learning. Com o **`tuneGrid`**, os usuários podem especificar uma grade de hiperparâmetros que o **`caret`** irá explorar durante o treinamento do modelo. Isso permite a identificação da combinação de parâmetros que resulta no melhor desempenho do modelo, otimizando assim a precisão das previsões. Esta ferramenta é essencial para refinar modelos e garantir que eles estejam operando em sua capacidade máxima.
+
+No caso de árvores de decisão, um hiperparâmetro importante é o parâmetro de complexidade (cp), que determina a poda da árvore. Este parâmetro ajuda a controlar o tamanho da árvore e a evitar overfitting. Ao utilizar o **`tuneGrid`** no **`caret`** para uma árvore de decisão, você pode especificar diferentes valores de cp para encontrar o que proporciona o melhor equilíbrio entre a complexidade da árvore e a capacidade de generalização do modelo.
+
+```{r,message=FALSE, warning=FALSE}
+hyper=expand.grid(
+  cp = seq(0.005, 1.0, 0.005) #parametros de complexidade de 0.005 até 1.0
+)
+tree_model <- train(diabetes ~.,  data = train.data,   method =  "rpart",tuneGrid=hyper)
+
+##Visuzalizar as acuráciass em função do parametro de complexidade
+plot(tree_model)
+
+#Resultados do modelo
+tree_model$bestTune
+tree_model$metric
+
+#Plotar a arvore obtida
+m=tree_model$finalModel
+prp(m, box.palette = "Reds", tweak = 1.2)
+```
+
+Para a validação de modelos no **`caret`**, métodos como a validação cruzada k-fold e bootstrap são disponibilizados através do argumento **`trControl`** na função **`train`**. Essas técnicas são essenciais para evitar o overfitting e avaliar a capacidade de generalização do modelo. A validação cruzada k-fold divide o conjunto de dados em k partes, treinando o modelo em k-1 partes e testando-o na parte restante. O processo é repetido para cada parte. Já o método bootstrap utiliza amostragem com reposição para criar conjuntos de treino e teste, fornecendo uma avaliação robusta do modelo.
+
+```{r,message=FALSE, warning=FALSE}
+#Definir o hiperametros
+hyper=expand.grid(
+  cp = seq(0.005, 1.0, 0.005) # complexidade de 0.005 até 1.0
+)
+#VAlidação K-fold
+ctrl=trainControl(method="cv",number=10)
+
+tree_model <- train(diabetes ~.,  data = train.data,   method =  "rpart",tuneGrid=hyper,trControl = ctrl,)
+
+##Visuzalizar as acuráciass em função do parametro de complexidade
+plot(tree_model)
+
+#Resultados do modelo
+tree_model$bestTune
+tree_model$metric
+
+#Plotar a arvore obtida
+m=tree_model$finalModel
+prp(m, box.palette = "Reds", tweak = 1.2)
+```
+
+No contexto de dados desbalanceados, o **`caret`** oferece técnicas de amostragem na configuração **`trControl`** da função **`train`**. Essas técnicas incluem Sobreamostragem (para aumentar a presença da classe minoritária), Subamostragem (para diminuir a presença da classe majoritária), SMOTE (Synthetic Minority Over-sampling Technique) e ROSE (Random Over-Sampling Examples). Estas são fundamentais para assegurar que o modelo de machine learning não fique enviesado em favor da classe mais representada no conjunto de dados. A utilização adequada destas técnicas ajuda a melhorar a performance do modelo em dados desbalanceados.
+
+```{r,message=FALSE, warning=FALSE}
+#Definir o hiperametros
+hyper=expand.grid(
+  cp = seq(0.005, 1.0, 0.005) # complexidade de 0.005 até 1.0
+)
+#VAlidação K-fold e sobreamostragem (Oversampling)
+ctrl=trainControl(method="cv",number=10,
+                  sampling = "up")
+
+tree_model <- train(diabetes ~.,  data = train.data,   method =  "rpart",tuneGrid=hyper,trControl = ctrl,)
+
+##Visuzalizar as acuráciass em função do parametro de complexidade
+plot(tree_model)
+
+#Resultados do modelo
+tree_model$bestTune
+tree_model$metric
+
+#Plotar a arvore obtida
+m=tree_model$finalModel
+prp(m, box.palette = "Reds", tweak = 1.2)
+
+```
+
+## **Tendências e Avanços na Machine Learning no R**
+
+1.  **Redes Neurais:** No R, a implementação de redes neurais é facilitada por pacotes como `nnet` [@nnet] e `neuralnet` [@neuralnet], que permitem a criação de modelos de rede neural para uma variedade de tarefas de classificação e regressão. Essas redes são fundamentais para entender conceitos básicos de IA antes de avançar para técnicas mais complexas.
+
+2.  **Máquinas de Vetores de Suporte (SVM):** R oferece suporte a SVMs por meio de pacotes como `e1071` [@e1071], permitindo a construção de modelos eficazes para classificação e regressão, especialmente úteis em conjuntos de dados de alta dimensão.
+
+3.  **Deep Learning:** O R tem visto um crescimento significativo na integração com tecnologias de Deep Learning. Pacotes como `keras`[@keras] e `tensorflow`[@tensorflow] permitem aos usuários do R acessar e implementar redes neurais profundas de forma eficiente. Esses pacotes trazem a potência do Deep Learning para a comunidade R, permitindo aplicações em visão computacional, reconhecimento de fala e outras áreas avançadas de IA.
+
+4.  **Aprendizado por Reforço:** Uma área em expansão no R é o Aprendizado por Reforço, onde o objetivo é desenvolver modelos que aprendem a tomar decisões otimizadas. Pacotes como `ReinforcementLearnin`g [@ReinforcementLearning] e `markovchain` [@markovchain] estão facilitando a implementação desses complexos algoritmos de aprendizado.
+
+5.  **AutoML:** A automatização no processo de Machine Learning é uma tendência crescente. No R, ferramentas como o `automl`[@automl] estão simplificando o processo de seleção e otimização de modelos, tornando a Machine Learning acessível até mesmo para aqueles com menos experiência técnica.
+
+6.  **Interpretabilidade e Ética em IA:** Com o aumento da complexidade dos modelos, a necessidade de interpretabilidade e considerações éticas se tornou mais premente. Pacotes como `lime` [@lime]e `DALEX`[@DALEX] estão na vanguarda, fornecendo ferramentas para explicar e interpretar modelos complexos, e abordar questões éticas.
+
+7.  **Integração com Big Data:** A capacidade de trabalhar com grandes volumes de dados é crucial. Pacotes como `sparklyr` [@sparlyr]oferecem integração com Apache Spark, permitindo o processamento de grandes conjuntos de dados dentro do ambiente R.
+
+8.  **Modelagem Bayesian:** Métodos Bayesianos estão ganhando tração no R para uma ampla variedade de aplicações. Pacotes como `brms`[@brms] e `rstan` [@rstan] oferecem frameworks avançados para modelagem estatística Bayesiana.
+
+    Essas tendências demonstram como o R está evoluindo e se adaptando às necessidades de uma paisagem de dados em rápida mudança, mantendo-se como uma ferramenta valiosa e relevante no campo do Machine Learning.
