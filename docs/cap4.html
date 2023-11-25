@@ -1,0 +1,1361 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.433">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<title>cap4</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script><script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+</head>
+<body>
+
+<div id="quarto-search-results"></div>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        
+    <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="cap4.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></div>
+<!-- main -->
+<main class="content" id="quarto-document-content"><section id="aplicações-básicas-e-intermediárias-em-ia-com-r" class="level1"><h1>Aplicações Básicas e Intermediárias em IA com R</h1>
+<p>Este capítulo apresenta uma visão abrangente das aplicações práticas da Inteligência Artificial (IA) utilizando o R. Cobrindo desde técnicas básicas até métodos intermediários, ele oferece aos leitores uma base sólida em teoria e prática. Os tópicos incluem Regressão Linear e Logística, Árvores de Decisão e Florestas Aleatórias, além de uma introdução a Redes Neurais. O capítulo também discute as tendências e avanços recentes em Machine Learning, proporcionando aos leitores insights sobre as futuras inovações no campo da IA.</p>
+<section id="regressão-linear" class="level2"><h2 class="anchored" data-anchor-id="regressão-linear"><strong>Regressão Linear</strong></h2>
+<p>A regressão linear é um método fundamental tanto em estatística quanto em machine learning. Ela é utilizada para modelar a relação entre uma variável de saída (dependente) contínua e uma ou mais variáveis de entrada (independentes). Esse método estabelece uma equação linear que descreve a relação entre essas variáveis, permitindo a previsão de valores da variável de saída com base em novos dados de entrada. Apesar de sua simplicidade, a regressão linear é uma ferramenta poderosa para análises preditivas e é frequentemente o ponto de partida para muitos estudos e análises em diversos campos <span class="citation" data-cites="zbicki2020 James2013 burger2018">(<a href="#ref-zbicki2020" role="doc-biblioref">Zbicki and Santos 2020</a>; <a href="#ref-James2013" role="doc-biblioref">James et al. 2023</a>; <a href="#ref-burger2018" role="doc-biblioref">Burger 2018</a>)</span>.</p>
+<p><strong>Conceito: A ideia central da regressão linear é encontrar a melhor reta (ou, em casos de múltiplas variáveis independentes, um plano ou hiperplano) que se ajuste aos dados observados.</strong></p>
+<p>A reta (plano ou hiperplano) é obtida minimizando a diferença entre os valores reais observados nos dados e os valores previstos pelo modelo. Essa minimização geralmente é realizada através do método dos mínimos quadrados, buscando reduzir a soma dos quadrados das diferenças entre os valores observados e os previstos. Esse método fornece uma maneira eficiente de estimar os coeficientes do modelo linear, oferecendo uma previsão confiável baseada nas variáveis independentes <span class="citation" data-cites="singh2016r zbicki2020">(<a href="#ref-singh2016r" role="doc-biblioref">Singh and Allen 2016</a>; <a href="#ref-zbicki2020" role="doc-biblioref">Zbicki and Santos 2020</a>)</span>.</p>
+<p>A regressão linear é valiosa tanto para <strong>visualizar tendências</strong> quanto para <strong>fazer previsões</strong>. Ao ajustar uma linha a um conjunto de pontos de dados, ela facilita a <strong>visualização</strong> e a <strong>compreensão</strong> da relação entre as variáveis. Esta técnica se torna especialmente útil em grandes conjuntos de dados, onde pode ser desafiador identificar padrões. Por meio da regressão linear, torna-se mais simples discernir a relação entre variáveis, proporcionando informações que podem guiar análises mais profundas e decisões baseadas em dados <span class="citation" data-cites="singh2016r zbicki2020">(<a href="#ref-singh2016r" role="doc-biblioref">Singh and Allen 2016</a>; <a href="#ref-zbicki2020" role="doc-biblioref">Zbicki and Santos 2020</a>)</span>:</p>
+<ul>
+<li><p><strong>Interpretação Gráfica:</strong> A linha de regressão em um gráfico oferece uma interpretação visual imediata da relação entre as variáveis. Por exemplo, uma linha de regressão ascendente indica uma relação positiva, significando que à medida que uma variável aumenta, a outra também tende a aumentar.</p></li>
+<li><p><strong>Identificação de Anomalias:</strong> Além de revelar tendências, a regressão linear ajuda a identificar outliers ou anomalias nos dados, que são pontos significativamente afastados da linha de regressão.</p></li>
+</ul>
+<p>As aplicações práticas da regressão linear são vastas, abrangendo áreas como economia, meteorologia, saúde e mais, fornecendo previsões valiosas e insights para tomadas de decisão <span class="citation" data-cites="singh2016r zbicki2020">(<a href="#ref-singh2016r" role="doc-biblioref">Singh and Allen 2016</a>; <a href="#ref-zbicki2020" role="doc-biblioref">Zbicki and Santos 2020</a>)</span>.</p>
+<ul>
+<li><p><strong>Previsões Baseadas em Dados:</strong> Ao ajustar um modelo de regressão linear, é obtido uma equação que pode ser usada para fazer previsões. Por exemplo, em um modelo de regressão linear simples, essa equação pode ter a forma <span class="math inline">\(y=mx+b\)</span>, em quende <span class="math inline">\(y\)</span> é a variável de sáida (dependente), <span class="math inline">\(x\)</span> é a variável de entrada (independente), <span class="math inline">\(m\)</span> é a inclinação e <span class="math inline">\(b\)</span> é o intercepto da linha de regressão.</p></li>
+<li><p><strong>Aplicações Práticas:</strong> As previsões têm inúmeras aplicações práticas em diversos campos, como economia (previsão de tendências de mercado), meteorologia (previsão de temperaturas futuras), saúde (previsão de taxas de recuperação de pacientes), entre muitos outros.</p></li>
+</ul>
+<p>Ao trabalhar com regressão linear, é crucial considerar alguns aspectos importantes <span class="citation" data-cites="singh2016r chan2015">(<a href="#ref-singh2016r" role="doc-biblioref">Singh and Allen 2016</a>; <a href="#ref-chan2015" role="doc-biblioref">Chan 2015</a>)</span>:</p>
+<ul>
+<li><p><strong>Qualidade dos Dados:</strong> A eficácia da regressão linear está diretamente relacionada à qualidade dos dados utilizados. Dados imprecisos, incompletos ou com erros podem resultar em previsões falhas ou enganosas.</p></li>
+<li><p><strong>Relações Lineares:</strong> A regressão linear é ideal para situações em que a relação entre as variáveis é de fato linear. Se a relação for não-linear, modelos de regressão linear podem não ser adequados. Nestes casos podem ser aplicados modelos de regressão não linear e outras técnicas de machine learning podem ser mais apropriadas.</p></li>
+<li><p><strong>Relações Lineares</strong>: A regressão linear é ideal para situações onde há uma relação linear entre as variáveis .Em cenários onde essa relação é não-linear a aplicação de modelos de regressão não linear ou outras técnicas de machine learning pode ser mais apropriada, permitindo uma modelagem mais precisa das complexidades inerentes aos dados.</p></li>
+<li><p><strong>Causalidade vs.&nbsp;Correlação:</strong> É importante lembrar que a regressão linear por si só não implica causalidade. Ela pode identificar correlações entre variáveis, mas isso não implica uma relação de causa e efeito direta.</p></li>
+</ul>
+<section id="exemplo-prático" class="level3"><h3 class="anchored" data-anchor-id="exemplo-prático"><strong>Exemplo Prático</strong></h3>
+<section id="ajuste-de-modelo-de-regressão" class="level4"><h4 class="anchored" data-anchor-id="ajuste-de-modelo-de-regressão">Ajuste de modelo de regressão</h4>
+<p>Vamos considerar um conjunto de dados hipotético que representa uma cidade durante um verão particularmente quente. O objetivo é analisar a relação entre a temperatura média diária (em graus Celsius) e o consumo total diário de energia elétrica (em megawatts-hora). Espera-se que essa relação seja aproximadamente linear, com o consumo de energia aumentando à medida que as temperaturas se tornam mais altas.</p>
+<p>Para ilustras, vamos gerar alguns dados simulados em R para representar esta situação:</p>
+<div class="cell">
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">123</span><span class="op">)</span>  <span class="co"># Semente de numeros aleatorios para reprodutibilidade </span></span>
+<span><span class="va">temperatura</span> <span class="op">&lt;-</span> <span class="fl">25</span><span class="op">:</span><span class="fl">45</span>  <span class="co"># Temperatura variando de 25 a 45 graus Celsius </span></span>
+<span><span class="va">consumo_energia</span> <span class="op">&lt;-</span> <span class="fl">50</span> <span class="op">+</span> <span class="fl">2.5</span> <span class="op">*</span> <span class="va">temperatura</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">21</span>, mean <span class="op">=</span> <span class="fl">0</span>, sd <span class="op">=</span> <span class="fl">5</span><span class="op">)</span> </span>
+<span><span class="va">dados</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span><span class="va">temperatura</span>, <span class="va">consumo_energia</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Vamos ajustar um modelo de regressão linear e visualizá-lo com pacote <code>ggplot2</code><span class="citation" data-cites="ggplot2">(<a href="#ref-ggplot2" role="doc-biblioref">Wickham 2016</a>)</span> :</p>
+<div class="cell">
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">modelo</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">consumo_energia</span> <span class="op">~</span> <span class="va">temperatura</span>, data <span class="op">=</span> <span class="va">dados</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">modelo</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = consumo_energia ~ temperatura, data = dados)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-9.2185 -2.9014 -0.6606  2.9560  9.2535 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)  55.5938     6.3488   8.757 4.27e-08 ***
+temperatura   2.3522     0.1787  13.160 5.37e-11 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 4.96 on 19 degrees of freedom
+Multiple R-squared:  0.9011,    Adjusted R-squared:  0.8959 
+F-statistic: 173.2 on 1 and 19 DF,  p-value: 5.371e-11</code></pre>
+</div>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">dados</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">temperatura</span>, y <span class="op">=</span> <span class="va">consumo_energia</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_smooth.html">geom_smooth</a></span><span class="op">(</span>method <span class="op">=</span> <span class="st">"lm"</span>, se <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span> <span class="op">+</span></span>
+<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_minimal</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Relação entre Temperatura e Consumo de Energia"</span>,</span>
+<span>     x <span class="op">=</span> <span class="st">"Temperatura Média Diária (°C)"</span>,</span>
+<span>     y <span class="op">=</span> <span class="st">"Consumo de Energia (MWh)"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="cap4_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Neste exemplo, o modelo de regressão é representado pela equação <span class="math inline">\(y=2.35+55.59\)</span> e ilustrado pela linha no gráfico, destacando a relação entre temperatura e consumo de energia. Os pontos no gráfico representam os dados observados, enquanto a linha demonstra a tendência geral. Isso sugere que existe uma correlação positiva entre o aumento da temperatura e o aumento no consumo de energia, com a linha de regressão oferecendo uma visualização clara dessa tendência.</p>
+</section><section id="aplicação-de-modelos-de-regressão-linear-para-previsões" class="level4"><h4 class="anchored" data-anchor-id="aplicação-de-modelos-de-regressão-linear-para-previsões"><strong>Aplicação de Modelos de Regressão Linear para Previsões</strong></h4>
+<p>Utilizando o mesmo exemplo da relação entre temperatura e consumo de energia, agora vamos explorar como o modelo de regressão linear pode ser usado para fazer previsões. O objetivo é estimar o consumo de energia com base na temperatura.<br><br>
+Primeiro, ajustamos o modelo de regressão linear, como fizemos anteriormente:</p>
+<div class="cell">
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">modelo</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">consumo_energia</span> <span class="op">~</span> <span class="va">temperatura</span>, data <span class="op">=</span> <span class="va">dados</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Com o modelo ajustado, podemos usar a função <code><a href="https://rdrr.io/r/stats/predict.html">predict()</a></code> predict() para fazer previsões. Por exemplo, se quisermos prever o consumo de energia para uma temperatura de 25.5, 28.2, 30, 38.5 graus Celsius, fazemos o seguinte:</p>
+<div class="cell">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">temperatura_nova</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>temperatura <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">25.5</span>,<span class="fl">28.2</span>,<span class="fl">30</span>,<span class="fl">38.5</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">previsao_consumo</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/predict.html">predict</a></span><span class="op">(</span><span class="va">modelo</span>, newdata <span class="op">=</span> <span class="va">temperatura_nova</span><span class="op">)</span></span>
+<span><span class="va">previsao_consumo</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>       1        2        3        4 
+115.5744 121.9253 126.1593 146.1528 </code></pre>
+</div>
+</div>
+<p>Isso nos dará a previsão de consumo de energia para a temperatura especificada.<br><br>
+É útil visualizar as previsões juntamente com os dados originais e a linha de regressão. Isso pode ser feito ajustando o gráfico que criamos anteriormente:</p>
+<div class="cell">
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">dados1</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/cbind.html">cbind</a></span><span class="op">(</span><span class="va">temperatura_nova</span>,<span class="va">previsao_consumo</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">dados</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">temperatura</span>, y <span class="op">=</span> <span class="va">consumo_energia</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_smooth.html">geom_smooth</a></span><span class="op">(</span>method <span class="op">=</span> <span class="st">"lm"</span>, se <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>  <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span>data<span class="op">=</span><span class="va">dados1</span>,<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span><span class="va">temperatura</span>, y <span class="op">=</span> <span class="va">previsao_consumo</span><span class="op">)</span>, </span>
+<span>             colour <span class="op">=</span> <span class="st">"red"</span>,size<span class="op">=</span><span class="fl">3</span><span class="op">)</span><span class="op">+</span></span>
+<span>   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_minimal</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Previsão de Consumo de Energia com Regressão Linear"</span>,</span>
+<span>       x <span class="op">=</span> <span class="st">"Temperatura Média Diária (°C)"</span>,</span>
+<span>       y <span class="op">=</span> <span class="st">"Consumo de Energia (MWh)"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="cap4_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>No gráfico, o ponto vermelho representa a previsão de consumo de energia para a temperatura especificada.</p>
+</section></section></section><section id="sec-regressão-logística" class="level2"><h2 class="anchored" data-anchor-id="sec-regressão-logística">Regressão Logística</h2>
+<p>A regressão logística é uma técnica estatística usada para modelar a probabilidade de ocorrência de um evento, categorizando o resultado em classes. Esta técnica é empregada para variáveis dependentes categóricas binárias, como “sim” ou “não”, e “sucesso” ou “fracasso”. Ela difere da regressão linear, que prevê valores contínuos, ao estimar a probabilidade de um evento ocorrer, baseando-se em um ou mais preditores. A regressão logística é particularmente útil em classificadores de aprendizado de máquina, sendo um componente chave dos modelos lineares generalizados<span class="citation" data-cites="zbicki2020 James2013 burger2018">(<a href="#ref-zbicki2020" role="doc-biblioref">Zbicki and Santos 2020</a>; <a href="#ref-James2013" role="doc-biblioref">James et al. 2023</a>; <a href="#ref-burger2018" role="doc-biblioref">Burger 2018</a>)</span>.</p>
+<p>A regressão logística, utilizada no contexto de classificadores, pode ser expressa matematicamente para uma classe binária da seguinte maneira:</p>
+<p><span class="math display">\[
+Y_i = 1 \Rightarrow P( Y_i=1)=\pi_i\\  Y_i = 0 \Rightarrow P( Y_i=0)=1-\pi_i\\
+\]</span></p>
+<p>O modelo de regressão logistica é dado por: <span class="math display">\[
+\pi(X)=\frac{e^{\beta_0+\beta_1X_1+\beta_2X_2+...+\beta_mX_m}}{1+e^{\beta_0+\beta_1X_1+\beta_2X_2+...+\beta_mX_m}}
+\]</span></p>
+<p>em que <span class="math inline">\(X\)</span> representa o conjunto de atributos ou variáveis de entrada.</p>
+<p>Ao trabalhar com regressão logística, é crucial considerar aspectos importantes como:</p>
+<ul>
+<li><p><strong>Relação entre Variáveis</strong>: Este método é eficaz quando há uma relação clara entre as variáveis independentes e a variável dependente binária. As variáveis independentes podem ser categóricas ou quantitativas, mas para variáveis quantitativas, é importante verificar se existe uma relação log-log.</p></li>
+<li><p><strong>Multicolinearidade</strong>: É essencial evitar alta correlação entre as variáveis independentes, pois isso pode comprometer a interpretação dos coeficientes do modelo.</p></li>
+<li><p><strong>Avaliação do Modelo</strong>: Para avaliar a precisão e eficácia do modelo, deve-se usar métricas apropriadas, como a área sob a curva ROC (AUC).</p></li>
+</ul>
+<section id="sec-exemplo-prático" class="level3"><h3 class="anchored" data-anchor-id="sec-exemplo-prático"><strong>Exemplo Prático</strong></h3>
+<p><strong>Implementação no R</strong></p>
+<p>No R, a função <code><a href="https://rdrr.io/r/stats/glm.html">glm()</a></code> com a família binomial é comumente usada para realizar regressão logística.</p>
+<p>Para ilustrar a utilização da regressão logistica, vamos utilizar o conjunto de dados <strong><code>PimaIndiansDiabetes2</code></strong> pacote mlbench <span class="citation" data-cites="mlbench">(<a href="#ref-mlbench" role="doc-biblioref">Leisch and Dimitriadou 2021</a>)</span>. Este conjunto de dados contém informações de testes de diabetes coletadas de mulheres com pelo menos 21 anos, de herança indígena Pima e residentes próximas a Phoenix, Arizona, totalizando 768 observações em 9 variáveis</p>
+<ul>
+<li><p>pregnant: Número de vezes grávida.</p></li>
+<li><p>glucose: Concentração de glicose plasmática (teste de tolerância à glicose).</p></li>
+<li><p>pressure: Pressão arterial diastólica (mm Hg).</p></li>
+<li><p>triceps: Espessura da dobra da pele do tríceps (mm).</p></li>
+<li><p>insulin: Insulina sérica de 2 horas (mu U/ml).</p></li>
+<li><p>mass: Índice de massa corporal (peso em kg/(altura em m)^2).</p></li>
+<li><p>pedigree: Função de pedigree de diabetes.</p></li>
+<li><p>age: Idade (anos).</p></li>
+<li><p>diabetes: Fator indicando o resultado do teste de diabetes (neg/pos)</p></li>
+</ul>
+<p>O conjunto de dados <strong><code>PimaIndiansDiabetes2</code></strong> contém informações incompletas para alguns indivíduos, ou seja, nem todas as variáveis foram observadas em todos os casos. Portanto, vamos optar por trabalhar apenas com os dados completos, o que reduz o conjunto a 392 observações. Essa abordagem nos permite realizar análises mais precisas e confiáveis, focando em dados onde todas as variáveis estão presentes.</p>
+<p>Pacotes Necessários</p>
+<div class="cell">
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/topepo/caret/">caret</a></span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Prepararando os dados</p>
+<div class="cell">
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#Ler os dados e remover os NA</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="st">"PimaIndiansDiabetes2"</span>, package <span class="op">=</span> <span class="st">"mlbench"</span><span class="op">)</span></span>
+<span><span class="va">PimaIndiansDiabetes2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/na.fail.html">na.omit</a></span><span class="op">(</span><span class="va">PimaIndiansDiabetes2</span><span class="op">)</span></span>
+<span><span class="co"># Inspecionar os dados</span></span>
+<span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/sample_n.html">sample_n</a></span><span class="op">(</span><span class="va">PimaIndiansDiabetes2</span>, <span class="fl">3</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    pregnant glucose pressure triceps insulin mass pedigree age diabetes
+225        1     100       66      15      56 23.6    0.666  26      neg
+515        3      99       54      19      86 25.6    0.154  24      neg
+646        2     157       74      35     440 39.4    0.134  30      neg</code></pre>
+</div>
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Dividir o conjuntos de dados em treino e teste</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">123</span><span class="op">)</span></span>
+<span><span class="va">training.samples</span> <span class="op">&lt;-</span> <span class="va">PimaIndiansDiabetes2</span><span class="op">$</span><span class="va">diabetes</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://rdrr.io/pkg/caret/man/createDataPartition.html">createDataPartition</a></span><span class="op">(</span>p <span class="op">=</span> <span class="fl">0.8</span>, list <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<span><span class="va">train.data</span>  <span class="op">&lt;-</span> <span class="va">PimaIndiansDiabetes2</span><span class="op">[</span><span class="va">training.samples</span>, <span class="op">]</span></span>
+<span><span class="va">test.data</span> <span class="op">&lt;-</span> <span class="va">PimaIndiansDiabetes2</span><span class="op">[</span><span class="op">-</span><span class="va">training.samples</span>, <span class="op">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="regressão-logística-simples" class="level4"><h4 class="anchored" data-anchor-id="regressão-logística-simples">Regressão Logística Simples</h4>
+<p>A regressão logística simples é usada para prever a probabilidade de pertencer a uma classe com base em apenas uma variável preditora.</p>
+<p>O seguinte código R constrói um modelo para prever a probabilidade de ser positivo para diabetes com base na concentração de glicose plasmática:</p>
+<div class="cell">
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/glm.html">glm</a></span><span class="op">(</span> <span class="va">diabetes</span> <span class="op">~</span> <span class="va">glucose</span>, data <span class="op">=</span> <span class="va">train.data</span>, family <span class="op">=</span> <span class="va">binomial</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">model</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+glm(formula = diabetes ~ glucose, family = binomial, data = train.data)
+
+Coefficients:
+             Estimate Std. Error z value Pr(&gt;|z|)    
+(Intercept) -6.158820   0.700097  -8.797  &lt; 2e-16 ***
+glucose      0.043272   0.005341   8.102 5.42e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 398.8  on 313  degrees of freedom
+Residual deviance: 305.7  on 312  degrees of freedom
+AIC: 309.7
+
+Number of Fisher Scoring iterations: 4</code></pre>
+</div>
+</div>
+<p>O resultado apresenta a estimativa dos coeficientes beta da regressão e seus níveis de significância. O intercepto (<span class="math inline">\(\beta_0=-6,15\)</span>) e o coeficiente da variável glicose $_1= 0,043$.</p>
+<p>A equação logística pode ser escrita como</p>
+<p><span class="math display">\[
+\pi(X)=\frac{e^{-6,15+0,043Glucose}}{1+e^{-6,15+0,043Glucose}}
+\]</span></p>
+<p>Usando esta fórmula, para cada novo valor de concentração de glicose plasmática, é possível prever a probabilidade de os indivíduos serem positivos para diabetes.</p>
+<div class="cell">
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">train.data</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>prob <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="va">diabetes</span> <span class="op">==</span> <span class="st">"pos"</span>, <span class="fl">1</span>, <span class="fl">0</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span><span class="va">glucose</span>, <span class="va">prob</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span>alpha <span class="op">=</span> <span class="fl">0.2</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_smooth.html">geom_smooth</a></span><span class="op">(</span>method <span class="op">=</span> <span class="st">"glm"</span>, method.args <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>family <span class="op">=</span> <span class="st">"binomial"</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span></span>
+<span>    x <span class="op">=</span> <span class="st">"Concentração de glicose plasmática"</span>,</span>
+<span>    y <span class="op">=</span> <span class="st">"Probability de diabestes positiva"</span></span>
+<span>    <span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="cap4_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Podemos avaliar a capacidade preditiva do modelo utilizando os dados que ele já conhece através do seguinte processo no R:</p>
+<div class="cell">
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Predições</span></span>
+<span><span class="va">probabilities</span> <span class="op">&lt;-</span> <span class="va">model</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>                  <span class="fu"><a href="https://rdrr.io/r/stats/predict.html">predict</a></span><span class="op">(</span>type <span class="op">=</span> <span class="st">"response"</span><span class="op">)</span></span>
+<span><span class="va">predicted.classes</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="va">probabilities</span> <span class="op">&gt;</span> <span class="fl">0.5</span>, <span class="st">"pos"</span>, <span class="st">"neg"</span><span class="op">)</span></span>
+<span><span class="co"># Avaliando a acurácia</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">predicted.classes</span> <span class="op">==</span> <span class="va">train.data</span><span class="op">$</span><span class="va">diabetes</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.7611465</code></pre>
+</div>
+</div>
+<p>O resultado apresenta uma acurácia de 0,7611 para os dados de treinamento, , indica que o modelo é eficaz em classificar corretamente se um indivíduo tem ou não diabetes.</p>
+<p>Podemos avaliar o modelo com os dados de teste, que são novos para o modelo ou seja desconhecidos.</p>
+<div class="cell">
+<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Prediçõess</span></span>
+<span><span class="va">probabilities</span> <span class="op">&lt;-</span> <span class="va">model</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>                <span class="fu"><a href="https://rdrr.io/r/stats/predict.html">predict</a></span><span class="op">(</span><span class="va">test.data</span>, type <span class="op">=</span> <span class="st">"response"</span><span class="op">)</span></span>
+<span><span class="va">predicted.classes</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="va">probabilities</span> <span class="op">&gt;</span> <span class="fl">0.5</span>, <span class="st">"pos"</span>, <span class="st">"neg"</span><span class="op">)</span></span>
+<span><span class="co"># Avaliando a acurácia</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">predicted.classes</span> <span class="op">==</span> <span class="va">test.data</span><span class="op">$</span><span class="va">diabetes</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.7692308</code></pre>
+</div>
+</div>
+<p>Ao aplicar o modelo aos dados de teste, que são novos para o modelo, obtemos uma acurácia de 0,7692. Isso sugere que o modelo mantém uma boa performance geral também para dados que não foram usados no treinamento, demonstrando sua eficiência e capacidade de generalização.</p>
+</section><section id="regressão-logística-multipla" class="level4"><h4 class="anchored" data-anchor-id="regressão-logística-multipla">Regressão Logística Multipla</h4>
+<p>A regressão logística multipla é usada para prever a probabilidade de pertencer a uma classe com base em múltiplas variáveis preditoras.</p>
+<p>O seguinte código R constrói um modelo para prever a probabilidade de ser positivo para diabetes com base na concentração de glicose plasmática, número de vezes grávida e índice de massa corporal :</p>
+<div class="cell">
+<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/glm.html">glm</a></span><span class="op">(</span> <span class="va">diabetes</span> <span class="op">~</span> <span class="va">glucose</span><span class="op">+</span>  <span class="va">pregnant</span><span class="op">+</span><span class="va">mass</span>, data <span class="op">=</span> <span class="va">train.data</span>, family <span class="op">=</span> <span class="va">binomial</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">model</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+glm(formula = diabetes ~ glucose + pregnant + mass, family = binomial, 
+    data = train.data)
+
+Coefficients:
+             Estimate Std. Error z value Pr(&gt;|z|)    
+(Intercept) -9.323698   1.125997  -8.280  &lt; 2e-16 ***
+glucose      0.038862   0.005404   7.191 6.43e-13 ***
+pregnant     0.144667   0.045126   3.206  0.00135 ** 
+mass         0.094585   0.023530   4.020 5.83e-05 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 398.80  on 313  degrees of freedom
+Residual deviance: 279.88  on 310  degrees of freedom
+AIC: 287.88
+
+Number of Fisher Scoring iterations: 5</code></pre>
+</div>
+</div>
+<p>O resultado apresenta a estimativa dos coeficientes beta da regressão e seus níveis de significância. O intercepto (<span class="math inline">\(\beta_0=-9,32\)</span>), o coeficiente da variável glicose $_1= 0,038$, o coeficiente da variável número de vezes grávida $_2= 0,144$ e o coeficiente da variável índice de massa corporal $_3= 0,094$</p>
+<p>A equação logística pode ser escrita como</p>
+<p><span class="math display">\[ \pi(X)=\frac{e^{-9,32+0,038Glucose+0,144pregnant+0,094mass}}{1+e^{-9,32+0,038Glucose+0,144pregnant+0,094mass}} \]</span></p>
+<p>Avaliando a capacidade preditiva do com os dados de treino e teste:</p>
+<div class="cell">
+<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Predições conjunto de treinamento</span></span>
+<span><span class="va">probabilities</span> <span class="op">&lt;-</span> <span class="va">model</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>       <span class="fu"><a href="https://rdrr.io/r/stats/predict.html">predict</a></span><span class="op">(</span>type <span class="op">=</span> <span class="st">"response"</span><span class="op">)</span> </span>
+<span><span class="va">predicted.classes</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="va">probabilities</span> <span class="op">&gt;</span> <span class="fl">0.5</span>, </span>
+<span>                            <span class="st">"pos"</span>, <span class="st">"neg"</span><span class="op">)</span> </span>
+<span><span class="co"># Avaliando a acurácia </span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">predicted.classes</span> <span class="op">==</span> <span class="va">train.data</span><span class="op">$</span><span class="va">diabetes</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.7866242</code></pre>
+</div>
+<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#Prediçõess</span></span>
+<span><span class="va">probabilities1</span> <span class="op">&lt;-</span> <span class="va">model</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>                 </span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/stats/predict.html">predict</a></span><span class="op">(</span><span class="va">test.data</span>, type <span class="op">=</span> <span class="st">"response"</span><span class="op">)</span> </span>
+<span><span class="va">predicted.classes1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="va">probabilities1</span> <span class="op">&gt;</span> <span class="fl">0.5</span>, <span class="st">"pos"</span>, <span class="st">"neg"</span><span class="op">)</span> </span>
+<span><span class="co"># Avaliando a acurácia </span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">predicted.classes1</span> <span class="op">==</span> <span class="va">test.data</span><span class="op">$</span><span class="va">diabetes</span><span class="op">)</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.7820513</code></pre>
+</div>
+</div>
+<p>O resultado, com uma acurácia de 0,7866 para os dados de treinamento e 0,7820 para os dados de teste, indica que o modelo de regressão logística múltipla tem uma boa capacidade de generalização. Além disso, a acurácia mais alta do modelo múltiplo em comparação com o modelo simples sugere uma melhoria na performance preditiva ao incluir múltiplas variáveis preditoras.</p>
+</section></section></section><section id="árvores-de-decisão" class="level2"><h2 class="anchored" data-anchor-id="árvores-de-decisão"><strong>Árvores de Decisão</strong></h2>
+<p>As árvores de decisão são um método gráfico e analítico que subdivide uma amostra inicial em subamostras, formando grupos onde a variável de resposta apresenta comportamento homogêneo internamente e heterogêneo entre eles. Este algoritmo de aprendizado de máquina supervisionado é aplicável tanto para classificação quanto para regressão, ou seja, pode prever tanto categorias discretas (como “sim” ou “não”) quanto valores numéricos <span class="citation" data-cites="singh2016r zbicki2020">(<a href="#ref-singh2016r" role="doc-biblioref">Singh and Allen 2016</a>; <a href="#ref-zbicki2020" role="doc-biblioref">Zbicki and Santos 2020</a>)</span>:.</p>
+<p>Funcionando de maneira semelhante a um fluxograma , as árvores de decisão têm nós de decisão interconectados hierarquicamente, incluindo um nó-raiz principal e nós-folha que representam os resultados finais. No machine learning, o nó-raiz corresponde a um atributo da base de dados, enquanto o nó-folha indica a classe ou valor a ser previsto <span class="citation" data-cites="singh2016r zbicki2020">(<a href="#ref-singh2016r" role="doc-biblioref">Singh and Allen 2016</a>; <a href="#ref-zbicki2020" role="doc-biblioref">Zbicki and Santos 2020</a>)</span>.</p>
+<div id="fig1" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure"><p><img src="imagens/arvore.jpg" class="img-fluid figure-img" style="width:20cm"></p>
+<figcaption class="figure-caption">Exemplo de um esquema de arvore de decisão</figcaption></figure>
+</div>
+<p>Existem diversos algoritmos para a criação de árvores de decisão, sendo os mais comuns:</p>
+<ul>
+<li><p><strong>CHAID (Chi-square Automatic Interaction Detection)</strong>: Este algoritmo é mais comumente usado para tarefas de classificação.Utiliza tabelas de contingência para identificar as melhores divisões.</p></li>
+<li><p><strong>CART (Classification and Regression Trees):</strong> Um dos algoritmos mais versáteis, o CART é utilizado tanto para regressão quanto para classificação. Sua abordagem binária para dividir os nós permite uma ampla gama de aplicações.</p></li>
+<li><p><strong>ID3 (Iteractive Dichotomizer 3):</strong> Geralmente aplicado em tarefas de classificação, mas existem versões para regressão, o ID3 seleciona atributos com base no Ganho de Informação, escolhendo aqueles que mais reduzem a incerteza no conjunto de dados.</p></li>
+<li><p><strong>C4.5</strong>: Uma evolução do ID3, o C4.5 inclui melhorias como o tratamento de dados contínuos e valores ausentes, mantendo a abordagem baseada em Ganho de Informação.</p></li>
+</ul>
+<p>Árvores de decisão são particularmente úteis quando se deseja trabalhar com dados sem a necessidade de um tratamento extensivo. Elas lidam bem com valores atípicos e dados faltantes, reduzindo a necessidade de etapas de tratamento intensivo. Além disso, não é necessário converter dados categóricos para numéricos, pois este algoritmo lida eficientemente com informações nominais. Em situações que envolvem problemas tanto de classificação quanto de regressão, as árvores de decisão oferecem flexibilidade e eficácia, tornando-se uma escolha adequada para uma variedade de cenários analíticos.</p>
+<section id="exemplo-prático-1" class="level3"><h3 class="anchored" data-anchor-id="exemplo-prático-1"><strong>Exemplo Prático</strong></h3>
+<p><strong>Implementação no R</strong></p>
+<p>Para ilustrar a utilização arvore de decisão, vamos utilizar o conjunto de dados <strong><code>PimaIndiansDiabetes2</code></strong> pacote mlbench <span class="citation" data-cites="mlbench">(<a href="#ref-mlbench" role="doc-biblioref">Leisch and Dimitriadou 2021</a>)</span>, apresentado na seção anterior.</p>
+<p>Pacotes Necessários</p>
+<div class="cell">
+<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span> </span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/topepo/caret/">caret</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/bethatkinson/rpart">rpart</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://www.milbo.org/rpart-plot/index.html">rpart.plot</a></span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Prepararando os dados,</p>
+<div class="cell">
+<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#Ler os dados e remover os NA</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="st">"PimaIndiansDiabetes2"</span>, package <span class="op">=</span> <span class="st">"mlbench"</span><span class="op">)</span></span>
+<span><span class="va">PimaIndiansDiabetes2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/na.fail.html">na.omit</a></span><span class="op">(</span><span class="va">PimaIndiansDiabetes2</span><span class="op">)</span></span>
+<span><span class="co"># Inspecionar os dados</span></span>
+<span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/sample_n.html">sample_n</a></span><span class="op">(</span><span class="va">PimaIndiansDiabetes2</span>, <span class="fl">3</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    pregnant glucose pressure triceps insulin mass pedigree age diabetes
+221        0     177       60      29     478 34.6    1.072  21      pos
+72         5     139       64      35     140 28.6    0.411  26      neg
+172        6     134       70      23     130 35.4    0.542  29      pos</code></pre>
+</div>
+<div class="sourceCode" id="cb29"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Dividir o conjuntos de dados em treino e teste</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">123</span><span class="op">)</span></span>
+<span><span class="va">training.samples</span> <span class="op">&lt;-</span> <span class="va">PimaIndiansDiabetes2</span><span class="op">$</span><span class="va">diabetes</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://rdrr.io/pkg/caret/man/createDataPartition.html">createDataPartition</a></span><span class="op">(</span>p <span class="op">=</span> <span class="fl">0.8</span>, list <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<span><span class="va">train.data</span>  <span class="op">&lt;-</span> <span class="va">PimaIndiansDiabetes2</span><span class="op">[</span><span class="va">training.samples</span>, <span class="op">]</span></span>
+<span><span class="va">test.data</span> <span class="op">&lt;-</span> <span class="va">PimaIndiansDiabetes2</span><span class="op">[</span><span class="op">-</span><span class="va">training.samples</span>, <span class="op">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>O seguinte código R constrói um modelo de árvore de decisão para prever se um indivíduo é positivo para diabetes com base em todas as variáveis preditoras disponíveis no conjunto de dados. Isso é realizado utilizando o operador <strong><code>~</code></strong> para incluir todas as variáveis preditoras:</p>
+<div class="cell">
+<div class="sourceCode" id="cb30"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">tree_model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/rpart/man/rpart.html">rpart</a></span><span class="op">(</span></span>
+<span>  <span class="va">diabetes</span> <span class="op">~</span><span class="va">.</span>,  data <span class="op">=</span> <span class="va">train.data</span>,   method <span class="op">=</span> <span class="st">"class"</span></span>
+<span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">tree_model</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Call:
+rpart(formula = diabetes ~ ., data = train.data, method = "class")
+  n= 314 
+
+          CP nsplit rel error    xerror       xstd
+1 0.30769231      0 1.0000000 1.0000000 0.08019147
+2 0.05769231      1 0.6923077 0.7115385 0.07231416
+3 0.04166667      3 0.5769231 0.7211538 0.07264930
+4 0.02884615      6 0.4519231 0.7692308 0.07424287
+5 0.01000000      8 0.3942308 0.8173077 0.07570578
+
+Variable importance
+ glucose      age  insulin pressure pregnant  triceps     mass pedigree 
+      37       19       17       11        7        5        2        1 
+
+Node number 1: 314 observations,    complexity param=0.3076923
+  predicted class=neg  expected loss=0.3312102  P(node) =1
+    class counts:   210   104
+   probabilities: 0.669 0.331 
+  left son=2 (198 obs) right son=3 (116 obs)
+  Primary splits:
+      glucose  &lt; 127.5  to the left,  improve=34.61298, (0 missing)
+      insulin  &lt; 126.5  to the left,  improve=23.56122, (0 missing)
+      age      &lt; 28.5   to the left,  improve=20.18536, (0 missing)
+      mass     &lt; 34.05  to the left,  improve=11.06798, (0 missing)
+      pregnant &lt; 6.5    to the left,  improve=10.83097, (0 missing)
+  Surrogate splits:
+      insulin  &lt; 125.5  to the left,  agree=0.755, adj=0.336, (0 split)
+      age      &lt; 34.5   to the left,  agree=0.694, adj=0.172, (0 split)
+      pregnant &lt; 5.5    to the left,  agree=0.672, adj=0.112, (0 split)
+      pressure &lt; 81     to the left,  agree=0.672, adj=0.112, (0 split)
+      mass     &lt; 45.95  to the left,  agree=0.640, adj=0.026, (0 split)
+
+Node number 2: 198 observations,    complexity param=0.02884615
+  predicted class=neg  expected loss=0.1515152  P(node) =0.6305732
+    class counts:   168    30
+   probabilities: 0.848 0.152 
+  left son=4 (139 obs) right son=5 (59 obs)
+  Primary splits:
+      age      &lt; 29.5   to the left,  improve=4.887386, (0 missing)
+      insulin  &lt; 143.5  to the left,  improve=4.058442, (0 missing)
+      mass     &lt; 45.4   to the left,  improve=3.738038, (0 missing)
+      pedigree &lt; 0.6775 to the left,  improve=3.112899, (0 missing)
+      glucose  &lt; 103.5  to the left,  improve=2.719190, (0 missing)
+  Surrogate splits:
+      pregnant &lt; 4.5    to the left,  agree=0.854, adj=0.508, (0 split)
+      mass     &lt; 45.7   to the left,  agree=0.722, adj=0.068, (0 split)
+      pedigree &lt; 0.9215 to the left,  agree=0.722, adj=0.068, (0 split)
+      glucose  &lt; 119.5  to the left,  agree=0.717, adj=0.051, (0 split)
+      insulin  &lt; 173    to the left,  agree=0.717, adj=0.051, (0 split)
+
+Node number 3: 116 observations,    complexity param=0.05769231
+  predicted class=pos  expected loss=0.362069  P(node) =0.3694268
+    class counts:    42    74
+   probabilities: 0.362 0.638 
+  left son=6 (80 obs) right son=7 (36 obs)
+  Primary splits:
+      glucose  &lt; 165.5  to the left,  improve=6.575096, (0 missing)
+      mass     &lt; 29.5   to the left,  improve=6.442471, (0 missing)
+      triceps  &lt; 32.5   to the left,  improve=5.826207, (0 missing)
+      age      &lt; 24.5   to the left,  improve=4.923350, (0 missing)
+      pregnant &lt; 6.5    to the left,  improve=2.073976, (0 missing)
+  Surrogate splits:
+      age      &lt; 52     to the left,  agree=0.716, adj=0.083, (0 split)
+      insulin  &lt; 452.5  to the left,  agree=0.707, adj=0.056, (0 split)
+      pressure &lt; 104    to the left,  agree=0.698, adj=0.028, (0 split)
+      pedigree &lt; 1.764  to the left,  agree=0.698, adj=0.028, (0 split)
+
+Node number 4: 139 observations
+  predicted class=neg  expected loss=0.07913669  P(node) =0.4426752
+    class counts:   128    11
+   probabilities: 0.921 0.079 
+
+Node number 5: 59 observations,    complexity param=0.02884615
+  predicted class=neg  expected loss=0.3220339  P(node) =0.1878981
+    class counts:    40    19
+   probabilities: 0.678 0.322 
+  left son=10 (37 obs) right son=11 (22 obs)
+  Primary splits:
+      insulin  &lt; 142.5  to the left,  improve=6.932245, (0 missing)
+      glucose  &lt; 108.5  to the left,  improve=3.843730, (0 missing)
+      pedigree &lt; 0.514  to the left,  improve=2.531230, (0 missing)
+      mass     &lt; 26.5   to the left,  improve=1.919575, (0 missing)
+      pregnant &lt; 1.5    to the right, improve=1.562043, (0 missing)
+  Surrogate splits:
+      triceps  &lt; 45.5   to the left,  agree=0.695, adj=0.182, (0 split)
+      age      &lt; 50.5   to the left,  agree=0.695, adj=0.182, (0 split)
+      pregnant &lt; 1.5    to the right, agree=0.678, adj=0.136, (0 split)
+      pedigree &lt; 1.153  to the left,  agree=0.661, adj=0.091, (0 split)
+      glucose  &lt; 116    to the left,  agree=0.644, adj=0.045, (0 split)
+
+Node number 6: 80 observations,    complexity param=0.05769231
+  predicted class=pos  expected loss=0.475  P(node) =0.2547771
+    class counts:    38    42
+   probabilities: 0.475 0.525 
+  left son=12 (14 obs) right son=13 (66 obs)
+  Primary splits:
+      age      &lt; 23.5   to the left,  improve=6.982251, (0 missing)
+      triceps  &lt; 22.5   to the left,  improve=5.664103, (0 missing)
+      mass     &lt; 30.2   to the left,  improve=5.379624, (0 missing)
+      pregnant &lt; 7.5    to the left,  improve=2.236497, (0 missing)
+      pressure &lt; 77     to the left,  improve=1.761893, (0 missing)
+  Surrogate splits:
+      mass &lt; 25.15  to the left,  agree=0.85, adj=0.143, (0 split)
+
+Node number 7: 36 observations
+  predicted class=pos  expected loss=0.1111111  P(node) =0.1146497
+    class counts:     4    32
+   probabilities: 0.111 0.889 
+
+Node number 10: 37 observations
+  predicted class=neg  expected loss=0.1351351  P(node) =0.1178344
+    class counts:    32     5
+   probabilities: 0.865 0.135 
+
+Node number 11: 22 observations
+  predicted class=pos  expected loss=0.3636364  P(node) =0.07006369
+    class counts:     8    14
+   probabilities: 0.364 0.636 
+
+Node number 12: 14 observations
+  predicted class=neg  expected loss=0.07142857  P(node) =0.04458599
+    class counts:    13     1
+   probabilities: 0.929 0.071 
+
+Node number 13: 66 observations,    complexity param=0.04166667
+  predicted class=pos  expected loss=0.3787879  P(node) =0.2101911
+    class counts:    25    41
+   probabilities: 0.379 0.621 
+  left son=26 (8 obs) right son=27 (58 obs)
+  Primary splits:
+      triceps  &lt; 22     to the left,  improve=2.508882, (0 missing)
+      mass     &lt; 33.95  to the left,  improve=2.205307, (0 missing)
+      pedigree &lt; 0.7115 to the left,  improve=1.978188, (0 missing)
+      pressure &lt; 77     to the left,  improve=1.382828, (0 missing)
+      pregnant &lt; 1.5    to the right, improve=1.240998, (0 missing)
+  Surrogate splits:
+      mass &lt; 23.85  to the left,  agree=0.909, adj=0.25, (0 split)
+
+Node number 26: 8 observations
+  predicted class=neg  expected loss=0.25  P(node) =0.02547771
+    class counts:     6     2
+   probabilities: 0.750 0.250 
+
+Node number 27: 58 observations,    complexity param=0.04166667
+  predicted class=pos  expected loss=0.3275862  P(node) =0.1847134
+    class counts:    19    39
+   probabilities: 0.328 0.672 
+  left son=54 (31 obs) right son=55 (27 obs)
+  Primary splits:
+      pressure &lt; 77     to the left,  improve=2.0487370, (0 missing)
+      glucose  &lt; 145.5  to the right, improve=2.0231530, (0 missing)
+      mass     &lt; 40.75  to the left,  improve=1.2517240, (0 missing)
+      pedigree &lt; 0.7115 to the left,  improve=1.0115530, (0 missing)
+      age      &lt; 41     to the left,  improve=0.9256372, (0 missing)
+  Surrogate splits:
+      triceps  &lt; 32.5   to the left,  agree=0.672, adj=0.296, (0 split)
+      age      &lt; 31     to the left,  agree=0.672, adj=0.296, (0 split)
+      pregnant &lt; 4.5    to the left,  agree=0.638, adj=0.222, (0 split)
+      pedigree &lt; 0.866  to the left,  agree=0.638, adj=0.222, (0 split)
+      insulin  &lt; 105    to the right, agree=0.603, adj=0.148, (0 split)
+
+Node number 54: 31 observations,    complexity param=0.04166667
+  predicted class=pos  expected loss=0.4516129  P(node) =0.09872611
+    class counts:    14    17
+   probabilities: 0.452 0.548 
+  left son=108 (15 obs) right son=109 (16 obs)
+  Primary splits:
+      pressure &lt; 71     to the right, improve=7.0548390, (0 missing)
+      mass     &lt; 39.95  to the left,  improve=1.7238860, (0 missing)
+      pregnant &lt; 1.5    to the right, improve=0.8765778, (0 missing)
+      age      &lt; 25.5   to the right, improve=0.8765778, (0 missing)
+      insulin  &lt; 156    to the right, improve=0.8131720, (0 missing)
+  Surrogate splits:
+      triceps  &lt; 31.5   to the right, agree=0.613, adj=0.200, (0 split)
+      age      &lt; 29.5   to the right, agree=0.613, adj=0.200, (0 split)
+      pregnant &lt; 3.5    to the right, agree=0.581, adj=0.133, (0 split)
+      glucose  &lt; 161.5  to the right, agree=0.581, adj=0.133, (0 split)
+      insulin  &lt; 105    to the left,  agree=0.581, adj=0.133, (0 split)
+
+Node number 55: 27 observations
+  predicted class=pos  expected loss=0.1851852  P(node) =0.08598726
+    class counts:     5    22
+   probabilities: 0.185 0.815 
+
+Node number 108: 15 observations
+  predicted class=neg  expected loss=0.2  P(node) =0.0477707
+    class counts:    12     3
+   probabilities: 0.800 0.200 
+
+Node number 109: 16 observations
+  predicted class=pos  expected loss=0.125  P(node) =0.05095541
+    class counts:     2    14
+   probabilities: 0.125 0.875 </code></pre>
+</div>
+</div>
+<p>Este código produz um resumo detalhado do modelo de árvore de decisão, que pode ser complexo de analisar. Para facilitar a visualização, podemos representar graficamente a árvore construída:</p>
+<div class="cell">
+<div class="sourceCode" id="cb32"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/rpart.plot/man/prp.html">prp</a></span><span class="op">(</span><span class="va">tree_model</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="cap4_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Este passo permite visualizar a estrutura da árvore de decisão de forma mais intuitiva e compreensível.</p>
+<p>Por padrão, o <strong><code>rpart</code></strong> usa a impureza de Gini para selecionar divisões ao realizar classificação. (Se você não está familiarizado, leia este artigo.) Você pode usar o ganho de informação em vez disso, especificando-o no parâmetro <strong><code>parms</code></strong>.</p>
+<div class="cell">
+<div class="sourceCode" id="cb33"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">tree_model1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/rpart/man/rpart.html">rpart</a></span><span class="op">(</span><span class="va">diabetes</span> <span class="op">~</span><span class="va">.</span>,data <span class="op">=</span> <span class="va">train.data</span>,method <span class="op">=</span> <span class="st">"class"</span>,</span>
+<span>  parms <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>split <span class="op">=</span> <span class="st">'information'</span><span class="op">)</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/rpart.plot/man/prp.html">prp</a></span><span class="op">(</span><span class="va">tree_model1</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="cap4_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Podemos avaliar a capacidade preditiva do com os dados de treino e teste, utilizando os dados que ele já conhece através do seguinte processo no R:</p>
+<div class="cell">
+<div class="sourceCode" id="cb34"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Predições de treinamento</span></span>
+<span><span class="va">class</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/predict.html">predict</a></span><span class="op">(</span><span class="va">tree_model1</span>,type <span class="op">=</span> <span class="st">'class'</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/caret/man/confusionMatrix.html">confusionMatrix</a></span><span class="op">(</span><span class="va">class</span>, <span class="va">train.data</span><span class="op">$</span><span class="va">diabetes</span>,positive<span class="op">=</span><span class="st">'pos'</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Confusion Matrix and Statistics
+
+          Reference
+Prediction neg pos
+       neg 194  23
+       pos  16  81
+                                          
+               Accuracy : 0.8758          
+                 95% CI : (0.8341, 0.9102)
+    No Information Rate : 0.6688          
+    P-Value [Acc &gt; NIR] : &lt;2e-16          
+                                          
+                  Kappa : 0.7148          
+                                          
+ Mcnemar's Test P-Value : 0.3367          
+                                          
+            Sensitivity : 0.7788          
+            Specificity : 0.9238          
+         Pos Pred Value : 0.8351          
+         Neg Pred Value : 0.8940          
+             Prevalence : 0.3312          
+         Detection Rate : 0.2580          
+   Detection Prevalence : 0.3089          
+      Balanced Accuracy : 0.8513          
+                                          
+       'Positive' Class : pos             
+                                          </code></pre>
+</div>
+<div class="sourceCode" id="cb36"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Predições de teste</span></span>
+<span><span class="va">class1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/predict.html">predict</a></span><span class="op">(</span><span class="va">tree_model1</span>,<span class="va">test.data</span>,type <span class="op">=</span> <span class="st">'class'</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/caret/man/confusionMatrix.html">confusionMatrix</a></span><span class="op">(</span><span class="va">class1</span>, <span class="va">test.data</span><span class="op">$</span><span class="va">diabetes</span>,positive<span class="op">=</span><span class="st">'pos'</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Confusion Matrix and Statistics
+
+          Reference
+Prediction neg pos
+       neg  41   9
+       pos  11  17
+                                          
+               Accuracy : 0.7436          
+                 95% CI : (0.6321, 0.8358)
+    No Information Rate : 0.6667          
+    P-Value [Acc &gt; NIR] : 0.09127         
+                                          
+                  Kappa : 0.434           
+                                          
+ Mcnemar's Test P-Value : 0.82306         
+                                          
+            Sensitivity : 0.6538          
+            Specificity : 0.7885          
+         Pos Pred Value : 0.6071          
+         Neg Pred Value : 0.8200          
+             Prevalence : 0.3333          
+         Detection Rate : 0.2179          
+   Detection Prevalence : 0.3590          
+      Balanced Accuracy : 0.7212          
+                                          
+       'Positive' Class : pos             
+                                          </code></pre>
+</div>
+</div>
+<p>O resultado, com uma acurácia de 0,8758para os dados de treinamento e 0,7436para os dados de teste, indica que o modelo de regressão logística múltipla tem uma boa capacidade de generalização. Além disso, outras medidas de performance do modelo apresentam valores elevados.</p>
+</section></section><section id="floresta-aleatória" class="level2"><h2 class="anchored" data-anchor-id="floresta-aleatória">Floresta Aleatória</h2>
+<p>Floresta Aleatória é um algoritmo de aprendizado supervisionado que cria uma “floresta” de forma aleatória. Essa floresta é na verdade um conjunto de árvores de decisão, geralmente treinadas com o método de bagging. A ideia por trás do bagging é que a combinação de vários modelos de aprendizado melhora o desempenho geral.</p>
+<p>As Florestas Aleatórias funcionam ao criar numerosas árvores de decisão aleatoriamente, cada uma contribuindo para a decisão final. Uma grande vantagem desse algoritmo é sua aplicabilidade tanto em tarefas de classificação quanto de regressão, sendo muito relevante nos sistemas de aprendizado de máquina atuais. No contexto de classificação, as Florestas Aleatórias são consideradas um dos pilares do aprendizado de máquina. Um exemplo clássico de Floresta Aleatória pode incluir diversas árvores, cada uma contribuindo para a classificação ou previsão final.</p>
+<p><strong>Diferenças entre Árvore de Decisão e Florestas Aleatórias</strong></p>
+<p>Floresta Aleatória e Árvore de Decisão são métodos de aprendizado de máquina, mas com diferenças significativas. Enquanto a Árvore de Decisão utiliza regras e nodos baseados em cálculos como ganho de informação e índice de Gini, a Floresta Aleatória opera de maneira aleatória e é uma coleção de várias árvores. Uma Árvore de Decisão única pode sofrer de sobreajuste, especialmente se for muito profunda. Em contraste, as Florestas Aleatórias minimizam o sobreajuste ao construir várias árvores menores a partir de subconjuntos aleatórios de características, combinando-as posteriormente. Este processo pode tornar as Florestas Aleatórias mais lentas, dependendo do número de árvores construídas.</p>
+<p><strong>Algoritmo para Florestas Aleatórias</strong></p>
+<p>O algoritmo das Florestas Aleatórias (Random Forest) funciona da seguinte maneira:</p>
+<ul>
+<li><p>Gerar <span class="math inline">\(B\)</span> amostras bootstrap com reposição do conjunto de dados original.</p></li>
+<li>
+<p>Para cada amostra bootstrap, criar uma árvore de decisão:</p>
+<ul>
+<li><p>Em cada nó, é sorteado <span class="math inline">\(M\)</span> atributos dentre os quais a divisão será realizada.</p></li>
+<li><p>A árvore é construída sem ser podada.</p></li>
+</ul>
+</li>
+<li><p>Cada árvore gera um resultado, e a classificação/regressão final é determinada pelo resultado mais frequente entre todas as árvores.</p></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="imagens/Floresta.jpg" class="img-fluid figure-img" style="width:20cm"></p>
+<figcaption class="figure-caption">Exemplo de floresta aleatória</figcaption></figure>
+</div>
+<section id="exemplo-prático-2" class="level3"><h3 class="anchored" data-anchor-id="exemplo-prático-2"><strong>Exemplo Prático</strong></h3>
+<p><strong>Implementação no R</strong></p>
+<p>Para ilustrar a utilização arvore de decisão, vamos utilizar o conjunto de dados <strong><code>PimaIndiansDiabetes2</code></strong> pacote mlbench <span class="citation" data-cites="mlbench">(<a href="#ref-mlbench" role="doc-biblioref">Leisch and Dimitriadou 2021</a>)</span>, apresentado na seção anterior.</p>
+<p>Pacotes Necessários</p>
+<div class="cell">
+<div class="sourceCode" id="cb38"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span>  </span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/topepo/caret/">caret</a></span><span class="op">)</span> </span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://www.stat.berkeley.edu/~breiman/RandomForests/">randomForest</a></span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Prepararando os dados,</p>
+<div class="cell">
+<div class="sourceCode" id="cb39"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#Ler os dados e remover os NA</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="st">"PimaIndiansDiabetes2"</span>, package <span class="op">=</span> <span class="st">"mlbench"</span><span class="op">)</span></span>
+<span><span class="va">PimaIndiansDiabetes2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/na.fail.html">na.omit</a></span><span class="op">(</span><span class="va">PimaIndiansDiabetes2</span><span class="op">)</span></span>
+<span><span class="co"># Inspecionar os dados</span></span>
+<span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/sample_n.html">sample_n</a></span><span class="op">(</span><span class="va">PimaIndiansDiabetes2</span>, <span class="fl">3</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    pregnant glucose pressure triceps insulin mass pedigree age diabetes
+53         5      88       66      21      23 24.4    0.342  30      neg
+423        0     102       64      46      78 40.6    0.496  21      neg
+541        8     100       74      40     215 39.4    0.661  43      pos</code></pre>
+</div>
+<div class="sourceCode" id="cb41"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Dividir o conjuntos de dados em treino e teste</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">123</span><span class="op">)</span></span>
+<span><span class="va">training.samples</span> <span class="op">&lt;-</span> <span class="va">PimaIndiansDiabetes2</span><span class="op">$</span><span class="va">diabetes</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://rdrr.io/pkg/caret/man/createDataPartition.html">createDataPartition</a></span><span class="op">(</span>p <span class="op">=</span> <span class="fl">0.8</span>, list <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<span><span class="va">train.data</span>  <span class="op">&lt;-</span> <span class="va">PimaIndiansDiabetes2</span><span class="op">[</span><span class="va">training.samples</span>, <span class="op">]</span></span>
+<span><span class="va">test.data</span> <span class="op">&lt;-</span> <span class="va">PimaIndiansDiabetes2</span><span class="op">[</span><span class="op">-</span><span class="va">training.samples</span>, <span class="op">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>O seguinte código R constrói um modelo de árvore de decisão para prever se um indivíduo é positivo para diabetes com base em todas as variáveis preditoras disponíveis no conjunto de dados. Isso é realizado utilizando o operador <strong><code>~</code></strong> para incluir todas as variáveis preditoras:</p>
+<div class="cell">
+<div class="sourceCode" id="cb42"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">rf_model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/randomForest/man/randomForest.html">randomForest</a></span><span class="op">(</span> <span class="va">diabetes</span> <span class="op">~</span><span class="va">.</span>,  data <span class="op">=</span> <span class="va">train.data</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">rf_model</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+ randomForest(formula = diabetes ~ ., data = train.data) 
+               Type of random forest: classification
+                     Number of trees: 500
+No. of variables tried at each split: 2
+
+        OOB estimate of  error rate: 23.57%
+Confusion matrix:
+    neg pos class.error
+neg 180  30   0.1428571
+pos  44  60   0.4230769</code></pre>
+</div>
+</div>
+<p>Podemos avaliar a capacidade preditiva do com os dados de treino e teste, utilizando os dados que ele já conhece através do seguinte processo no R:</p>
+<div class="cell">
+<div class="sourceCode" id="cb44"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#Conjunto de treino</span></span>
+<span><span class="va">class</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/predict.html">predict</a></span><span class="op">(</span><span class="va">rf_model</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/caret/man/confusionMatrix.html">confusionMatrix</a></span><span class="op">(</span><span class="va">class</span>, <span class="va">train.data</span><span class="op">$</span><span class="va">diabetes</span>,positive<span class="op">=</span><span class="st">'pos'</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Confusion Matrix and Statistics
+
+          Reference
+Prediction neg pos
+       neg 180  44
+       pos  30  60
+                                          
+               Accuracy : 0.7643          
+                 95% CI : (0.7134, 0.8102)
+    No Information Rate : 0.6688          
+    P-Value [Acc &gt; NIR] : 0.00014         
+                                          
+                  Kappa : 0.4493          
+                                          
+ Mcnemar's Test P-Value : 0.13073         
+                                          
+            Sensitivity : 0.5769          
+            Specificity : 0.8571          
+         Pos Pred Value : 0.6667          
+         Neg Pred Value : 0.8036          
+             Prevalence : 0.3312          
+         Detection Rate : 0.1911          
+   Detection Prevalence : 0.2866          
+      Balanced Accuracy : 0.7170          
+                                          
+       'Positive' Class : pos             
+                                          </code></pre>
+</div>
+<div class="sourceCode" id="cb46"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#Conjunto de teste</span></span>
+<span><span class="va">class1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/predict.html">predict</a></span><span class="op">(</span><span class="va">rf_model</span>,<span class="va">test.data</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/caret/man/confusionMatrix.html">confusionMatrix</a></span><span class="op">(</span><span class="va">class1</span>,<span class="va">test.data</span><span class="op">$</span><span class="va">diabetes</span>,positive<span class="op">=</span><span class="st">'pos'</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Confusion Matrix and Statistics
+
+          Reference
+Prediction neg pos
+       neg  42   8
+       pos  10  18
+                                        
+               Accuracy : 0.7692        
+                 95% CI : (0.66, 0.8571)
+    No Information Rate : 0.6667        
+    P-Value [Acc &gt; NIR] : 0.03295       
+                                        
+                  Kappa : 0.4906        
+                                        
+ Mcnemar's Test P-Value : 0.81366       
+                                        
+            Sensitivity : 0.6923        
+            Specificity : 0.8077        
+         Pos Pred Value : 0.6429        
+         Neg Pred Value : 0.8400        
+             Prevalence : 0.3333        
+         Detection Rate : 0.2308        
+   Detection Prevalence : 0.3590        
+      Balanced Accuracy : 0.7500        
+                                        
+       'Positive' Class : pos           
+                                        </code></pre>
+</div>
+</div>
+<p>O resultado, com uma acurácia de 0,8758 para os dados de treinamento e 0,7436para os dados de teste, indica que o modelo de regressão logística múltipla tem uma boa capacidade de generalização. Além disso, outras medidas de performance do modelo apresentam valores elevados.</p>
+</section></section><section id="introdução-ao-caret" class="level2"><h2 class="anchored" data-anchor-id="introdução-ao-caret">Introdução ao CARET</h2>
+<p>O pacote <strong><code>caret</code></strong> <span class="citation" data-cites="caret">(<a href="#ref-caret" role="doc-biblioref">Kuhn and Max 2008</a>)</span> (<strong>C</strong>lassification <strong>A</strong>nd <strong>RE</strong>gression <strong>T</strong>raining) no R é uma ferramenta valiosa para simplificar o treinamento de modelos em problemas complexos de regressão e classificação. Este pacote integra diversos outros pacotes do R, mas é projetado para carregá-los conforme a necessidade, evitando o carregamento de todos eles na inicialização. Isso reduz significativamente o tempo de inicialização do pacote e melhora a eficiência. O <strong><code>caret</code></strong> assume que os pacotes necessários estão instalados e, caso algum pacote de modelagem esteja faltando, ele notifica o usuário para instalá-lo. Sua popularidade se deve à sua capacidade de simplificar as etapas de treinamento e teste de modelos preditivos. Para exemplos detalhados de como utilizar o <strong><code>caret</code></strong>, pode-se visitar a página oficial: <a href="https://topepo.github.io/caret/">Caret Package</a>.</p>
+<p>O pacote <strong><code>caret</code></strong> no R oferece uma ampla gama de ferramentas para a preparação de dados, essencial para o sucesso dos modelos de machine learning. Ele facilita a normalização e padronização de dados, o que é crucial para métodos que são sensíveis à escala das variáveis. Além disso, o <strong><code>caret</code></strong> pode tratar dados faltantes, realizar a binarização de variáveis categóricas e a seleção de variáveis, ajudando a melhorar a eficiência e a eficácia dos modelos. Esses recursos tornam o <strong><code>caret</code></strong> uma escolha excelente para o preprocessamento de dados antes da aplicação de técnicas de aprendizado de máquina.</p>
+<p>O <strong><code>caret</code></strong> proporciona uma interface unificada para uma ampla gama de modelos de machine learning, permitindo aos usuários aplicar diversos métodos e técnicas com uma sintaxe consistente. Isso inclui desde modelos lineares até técnicas avançadas de ensemble.</p>
+<section id="treinamento-de-modelos" class="level3"><h3 class="anchored" data-anchor-id="treinamento-de-modelos">Treinamento de modelos</h3>
+<p>Para ilustrar o treinamento de modelos no pacote <strong><code>caret</code></strong> , vamos utilizar o conjunto de dados <strong><code>PimaIndiansDiabetes2</code></strong> pacote <code>mlbench</code> <span class="citation" data-cites="mlbench">(<a href="#ref-mlbench" role="doc-biblioref">Leisch and Dimitriadou 2021</a>)</span>, apresentado na seção anterior e vamos obter um modelo de arvore de decisão.</p>
+<p>Uma das funções centrais do pacote <strong><code>caret</code></strong> é a <strong><code><a href="https://rdrr.io/pkg/caret/man/train.html">train()</a></code></strong>, que é essencial para a construção de modelos de machine learning. Esta função automatiza o processo de treinamento, incorporando técnicas como validação cruzada e otimização de parâmetros. Ao usar a <strong><code><a href="https://rdrr.io/pkg/caret/man/train.html">train()</a></code></strong>, o usuário pode aplicar diversos algoritmos aos dados, resultando em modelos bem treinados e prontos para serem testados e usados em previsões. A função <strong><code>train</code></strong> também facilita a comparação do desempenho de diferentes algoritmos, tornando-a uma ferramenta valiosa para a seleção de modelos adequados.</p>
+<p>Pacotes Necessários</p>
+<div class="cell">
+<div class="sourceCode" id="cb48"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span>   </span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/topepo/caret/">caret</a></span><span class="op">)</span>  </span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://www.milbo.org/rpart-plot/index.html">rpart.plot</a></span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Prepararando os dados,</p>
+<div class="cell">
+<div class="sourceCode" id="cb49"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#Ler os dados e remover os NA</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="st">"PimaIndiansDiabetes2"</span>, package <span class="op">=</span> <span class="st">"mlbench"</span><span class="op">)</span></span>
+<span><span class="va">PimaIndiansDiabetes2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/na.fail.html">na.omit</a></span><span class="op">(</span><span class="va">PimaIndiansDiabetes2</span><span class="op">)</span></span>
+<span><span class="co"># Inspecionar os dados</span></span>
+<span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/sample_n.html">sample_n</a></span><span class="op">(</span><span class="va">PimaIndiansDiabetes2</span>, <span class="fl">3</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    pregnant glucose pressure triceps insulin mass pedigree age diabetes
+17         0     118       84      47     230 45.8    0.551  31      pos
+127        3     120       70      30     135 42.9    0.452  30      neg
+349        3      99       62      19      74 21.8    0.279  26      neg</code></pre>
+</div>
+<div class="sourceCode" id="cb51"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Dividir o conjuntos de dados em treino e teste</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">123</span><span class="op">)</span></span>
+<span><span class="va">training.samples</span> <span class="op">&lt;-</span> <span class="va">PimaIndiansDiabetes2</span><span class="op">$</span><span class="va">diabetes</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://rdrr.io/pkg/caret/man/createDataPartition.html">createDataPartition</a></span><span class="op">(</span>p <span class="op">=</span> <span class="fl">0.8</span>, list <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<span><span class="va">train.data</span>  <span class="op">&lt;-</span> <span class="va">PimaIndiansDiabetes2</span><span class="op">[</span><span class="va">training.samples</span>, <span class="op">]</span></span>
+<span><span class="va">test.data</span> <span class="op">&lt;-</span> <span class="va">PimaIndiansDiabetes2</span><span class="op">[</span><span class="op">-</span><span class="va">training.samples</span>, <span class="op">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Treinar o modelo</p>
+<div class="cell">
+<div class="sourceCode" id="cb52"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">tree_model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/caret/man/train.html">train</a></span><span class="op">(</span><span class="va">diabetes</span> <span class="op">~</span><span class="va">.</span>,  data <span class="op">=</span> <span class="va">train.data</span>,   method <span class="op">=</span>  <span class="st">"rpart"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co">#Resultados do modelo</span></span>
+<span><span class="va">tree_model</span><span class="op">$</span><span class="va">results</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>          cp  Accuracy     Kappa AccuracySD    KappaSD
+1 0.04166667 0.7484020 0.4120695 0.04108556 0.09521895
+2 0.05769231 0.7461157 0.4013915 0.03684616 0.09119484
+3 0.30769231 0.7192240 0.2975358 0.05061580 0.21417929</code></pre>
+</div>
+<div class="sourceCode" id="cb54"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">tree_model</span><span class="op">$</span><span class="va">bestTune</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>          cp
+1 0.04166667</code></pre>
+</div>
+<div class="sourceCode" id="cb56"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">tree_model</span><span class="op">$</span><span class="va">metric</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Accuracy"</code></pre>
+</div>
+<div class="sourceCode" id="cb58"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#Plotar a arvore obtida</span></span>
+<span><span class="va">m</span><span class="op">=</span><span class="va">tree_model</span><span class="op">$</span><span class="va">finalModel</span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/rpart.plot/man/prp.html">prp</a></span><span class="op">(</span><span class="va">m</span>, box.palette <span class="op">=</span> <span class="st">"Reds"</span>, tweak <span class="op">=</span> <span class="fl">1.2</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="cap4_files/figure-html/unnamed-chunk-26-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>O <strong><code>tuneGrid</code></strong> é uma funcionalidade importante do pacote <strong><code>caret</code></strong> no R, utilizada para otimizar os hiperparâmetros de modelos de machine learning. Com o <strong><code>tuneGrid</code></strong>, os usuários podem especificar uma grade de hiperparâmetros que o <strong><code>caret</code></strong> irá explorar durante o treinamento do modelo. Isso permite a identificação da combinação de parâmetros que resulta no melhor desempenho do modelo, otimizando assim a precisão das previsões. Esta ferramenta é essencial para refinar modelos e garantir que eles estejam operando em sua capacidade máxima.</p>
+<p>No caso de árvores de decisão, um hiperparâmetro importante é o parâmetro de complexidade (cp), que determina a poda da árvore. Este parâmetro ajuda a controlar o tamanho da árvore e a evitar overfitting. Ao utilizar o <strong><code>tuneGrid</code></strong> no <strong><code>caret</code></strong> para uma árvore de decisão, você pode especificar diferentes valores de cp para encontrar o que proporciona o melhor equilíbrio entre a complexidade da árvore e a capacidade de generalização do modelo.</p>
+<div class="cell">
+<div class="sourceCode" id="cb59"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">hyper</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/expand.grid.html">expand.grid</a></span><span class="op">(</span></span>
+<span>  cp <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">0.005</span>, <span class="fl">1.0</span>, <span class="fl">0.005</span><span class="op">)</span> <span class="co">#parametros de complexidade de 0.005 até 1.0</span></span>
+<span><span class="op">)</span></span>
+<span><span class="va">tree_model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/caret/man/train.html">train</a></span><span class="op">(</span><span class="va">diabetes</span> <span class="op">~</span><span class="va">.</span>,  data <span class="op">=</span> <span class="va">train.data</span>,   method <span class="op">=</span>  <span class="st">"rpart"</span>,tuneGrid<span class="op">=</span><span class="va">hyper</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co">##Visuzalizar as acuráciass em função do parametro de complexidade</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">tree_model</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="cap4_files/figure-html/unnamed-chunk-27-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode" id="cb60"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#Resultados do modelo</span></span>
+<span><span class="va">tree_model</span><span class="op">$</span><span class="va">bestTune</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      cp
+39 0.195</code></pre>
+</div>
+<div class="sourceCode" id="cb62"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">tree_model</span><span class="op">$</span><span class="va">metric</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Accuracy"</code></pre>
+</div>
+<div class="sourceCode" id="cb64"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#Plotar a arvore obtida</span></span>
+<span><span class="va">m</span><span class="op">=</span><span class="va">tree_model</span><span class="op">$</span><span class="va">finalModel</span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/rpart.plot/man/prp.html">prp</a></span><span class="op">(</span><span class="va">m</span>, box.palette <span class="op">=</span> <span class="st">"Reds"</span>, tweak <span class="op">=</span> <span class="fl">1.2</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="cap4_files/figure-html/unnamed-chunk-27-2.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Para a validação de modelos no <strong><code>caret</code></strong>, métodos como a validação cruzada k-fold e bootstrap são disponibilizados através do argumento <strong><code>trControl</code></strong> na função <strong><code>train</code></strong>. Essas técnicas são essenciais para evitar o overfitting e avaliar a capacidade de generalização do modelo. A validação cruzada k-fold divide o conjunto de dados em k partes, treinando o modelo em k-1 partes e testando-o na parte restante. O processo é repetido para cada parte. Já o método bootstrap utiliza amostragem com reposição para criar conjuntos de treino e teste, fornecendo uma avaliação robusta do modelo.</p>
+<div class="cell">
+<div class="sourceCode" id="cb65"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#Definir o hiperametros</span></span>
+<span><span class="va">hyper</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/expand.grid.html">expand.grid</a></span><span class="op">(</span></span>
+<span>  cp <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">0.005</span>, <span class="fl">1.0</span>, <span class="fl">0.005</span><span class="op">)</span> <span class="co"># complexidade de 0.005 até 1.0</span></span>
+<span><span class="op">)</span></span>
+<span><span class="co">#VAlidação K-fold</span></span>
+<span><span class="va">ctrl</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/pkg/caret/man/trainControl.html">trainControl</a></span><span class="op">(</span>method<span class="op">=</span><span class="st">"cv"</span>,number<span class="op">=</span><span class="fl">10</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">tree_model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/caret/man/train.html">train</a></span><span class="op">(</span><span class="va">diabetes</span> <span class="op">~</span><span class="va">.</span>,  data <span class="op">=</span> <span class="va">train.data</span>,   method <span class="op">=</span>  <span class="st">"rpart"</span>,tuneGrid<span class="op">=</span><span class="va">hyper</span>,trControl <span class="op">=</span> <span class="va">ctrl</span>,<span class="op">)</span></span>
+<span></span>
+<span><span class="co">##Visuzalizar as acuráciass em função do parametro de complexidade</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">tree_model</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="cap4_files/figure-html/unnamed-chunk-28-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode" id="cb66"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#Resultados do modelo</span></span>
+<span><span class="va">tree_model</span><span class="op">$</span><span class="va">bestTune</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    cp
+2 0.01</code></pre>
+</div>
+<div class="sourceCode" id="cb68"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">tree_model</span><span class="op">$</span><span class="va">metric</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Accuracy"</code></pre>
+</div>
+<div class="sourceCode" id="cb70"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#Plotar a arvore obtida</span></span>
+<span><span class="va">m</span><span class="op">=</span><span class="va">tree_model</span><span class="op">$</span><span class="va">finalModel</span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/rpart.plot/man/prp.html">prp</a></span><span class="op">(</span><span class="va">m</span>, box.palette <span class="op">=</span> <span class="st">"Reds"</span>, tweak <span class="op">=</span> <span class="fl">1.2</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="cap4_files/figure-html/unnamed-chunk-28-2.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>No contexto de dados desbalanceados, o <strong><code>caret</code></strong> oferece técnicas de amostragem na configuração <strong><code>trControl</code></strong> da função <strong><code>train</code></strong>. Essas técnicas incluem Sobreamostragem (para aumentar a presença da classe minoritária), Subamostragem (para diminuir a presença da classe majoritária), SMOTE (Synthetic Minority Over-sampling Technique) e ROSE (Random Over-Sampling Examples). Estas são fundamentais para assegurar que o modelo de machine learning não fique enviesado em favor da classe mais representada no conjunto de dados. A utilização adequada destas técnicas ajuda a melhorar a performance do modelo em dados desbalanceados.</p>
+<div class="cell">
+<div class="sourceCode" id="cb71"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#Definir o hiperametros</span></span>
+<span><span class="va">hyper</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/expand.grid.html">expand.grid</a></span><span class="op">(</span></span>
+<span>  cp <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">0.005</span>, <span class="fl">1.0</span>, <span class="fl">0.005</span><span class="op">)</span> <span class="co"># complexidade de 0.005 até 1.0</span></span>
+<span><span class="op">)</span></span>
+<span><span class="co">#VAlidação K-fold e sobreamostragem (Oversampling)</span></span>
+<span><span class="va">ctrl</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/pkg/caret/man/trainControl.html">trainControl</a></span><span class="op">(</span>method<span class="op">=</span><span class="st">"cv"</span>,number<span class="op">=</span><span class="fl">10</span>,</span>
+<span>                  sampling <span class="op">=</span> <span class="st">"up"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">tree_model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/caret/man/train.html">train</a></span><span class="op">(</span><span class="va">diabetes</span> <span class="op">~</span><span class="va">.</span>,  data <span class="op">=</span> <span class="va">train.data</span>,   method <span class="op">=</span>  <span class="st">"rpart"</span>,tuneGrid<span class="op">=</span><span class="va">hyper</span>,trControl <span class="op">=</span> <span class="va">ctrl</span>,<span class="op">)</span></span>
+<span></span>
+<span><span class="co">##Visuzalizar as acuráciass em função do parametro de complexidade</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">tree_model</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="cap4_files/figure-html/unnamed-chunk-29-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode" id="cb72"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#Resultados do modelo</span></span>
+<span><span class="va">tree_model</span><span class="op">$</span><span class="va">bestTune</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     cp
+3 0.015</code></pre>
+</div>
+<div class="sourceCode" id="cb74"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">tree_model</span><span class="op">$</span><span class="va">metric</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Accuracy"</code></pre>
+</div>
+<div class="sourceCode" id="cb76"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#Plotar a arvore obtida</span></span>
+<span><span class="va">m</span><span class="op">=</span><span class="va">tree_model</span><span class="op">$</span><span class="va">finalModel</span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/rpart.plot/man/prp.html">prp</a></span><span class="op">(</span><span class="va">m</span>, box.palette <span class="op">=</span> <span class="st">"Reds"</span>, tweak <span class="op">=</span> <span class="fl">1.2</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="cap4_files/figure-html/unnamed-chunk-29-2.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section></section><section id="tendências-e-avanços-na-machine-learning-no-r" class="level2"><h2 class="anchored" data-anchor-id="tendências-e-avanços-na-machine-learning-no-r"><strong>Tendências e Avanços na Machine Learning no R</strong></h2>
+<ol type="1">
+<li><p><strong>Redes Neurais:</strong> No R, a implementação de redes neurais é facilitada por pacotes como <code>nnet</code> <span class="citation" data-cites="nnet">(<a href="#ref-nnet" role="doc-biblioref">Venables and Ripley 2002</a>)</span> e <code>neuralnet</code> <span class="citation" data-cites="neuralnet">(<a href="#ref-neuralnet" role="doc-biblioref">Fritsch, Guenther, and Wright 2019</a>)</span>, que permitem a criação de modelos de rede neural para uma variedade de tarefas de classificação e regressão. Essas redes são fundamentais para entender conceitos básicos de IA antes de avançar para técnicas mais complexas.</p></li>
+<li><p><strong>Máquinas de Vetores de Suporte (SVM):</strong> R oferece suporte a SVMs por meio de pacotes como <code>e1071</code> <span class="citation" data-cites="e1071">(<a href="#ref-e1071" role="doc-biblioref">Meyer et al. 2023</a>)</span>, permitindo a construção de modelos eficazes para classificação e regressão, especialmente úteis em conjuntos de dados de alta dimensão.</p></li>
+<li><p><strong>Deep Learning:</strong> O R tem visto um crescimento significativo na integração com tecnologias de Deep Learning. Pacotes como <code>keras</code><span class="citation" data-cites="keras">(<a href="#ref-keras" role="doc-biblioref">Allaire and Chollet 2023</a>)</span> e <code>tensorflow</code><span class="citation" data-cites="tensorflow">(<a href="#ref-tensorflow" role="doc-biblioref">Allaire and Tang 2023</a>)</span> permitem aos usuários do R acessar e implementar redes neurais profundas de forma eficiente. Esses pacotes trazem a potência do Deep Learning para a comunidade R, permitindo aplicações em visão computacional, reconhecimento de fala e outras áreas avançadas de IA.</p></li>
+<li><p><strong>Aprendizado por Reforço:</strong> Uma área em expansão no R é o Aprendizado por Reforço, onde o objetivo é desenvolver modelos que aprendem a tomar decisões otimizadas. Pacotes como <code>ReinforcementLearnin</code>g <span class="citation" data-cites="ReinforcementLearning">(<a href="#ref-ReinforcementLearning" role="doc-biblioref">Proellochs and Feuerriegel 2020</a>)</span> e <code>markovchain</code> <span class="citation" data-cites="markovchain">(<a href="#ref-markovchain" role="doc-biblioref">Spedicato 2017</a>)</span> estão facilitando a implementação desses complexos algoritmos de aprendizado.</p></li>
+<li><p><strong>AutoML:</strong> A automatização no processo de Machine Learning é uma tendência crescente. No R, ferramentas como o <code>automl</code><span class="citation" data-cites="automl">(<a href="#ref-automl" role="doc-biblioref">Boulangé 2020</a>)</span> estão simplificando o processo de seleção e otimização de modelos, tornando a Machine Learning acessível até mesmo para aqueles com menos experiência técnica.</p></li>
+<li><p><strong>Interpretabilidade e Ética em IA:</strong> Com o aumento da complexidade dos modelos, a necessidade de interpretabilidade e considerações éticas se tornou mais premente. Pacotes como <code>lime</code> <span class="citation" data-cites="lime">(<a href="#ref-lime" role="doc-biblioref">Hvitfeldt, Pedersen, and Benesty 2022</a>)</span>e <code>DALEX</code><span class="citation" data-cites="DALEX">(<a href="#ref-DALEX" role="doc-biblioref">Biecek 2018</a>)</span> estão na vanguarda, fornecendo ferramentas para explicar e interpretar modelos complexos, e abordar questões éticas.</p></li>
+<li><p><strong>Integração com Big Data:</strong> A capacidade de trabalhar com grandes volumes de dados é crucial. Pacotes como <code>sparklyr</code> <span class="citation" data-cites="sparlyr">(<a href="#ref-sparlyr" role="doc-biblioref">Luraschi et al. 2023</a>)</span>oferecem integração com Apache Spark, permitindo o processamento de grandes conjuntos de dados dentro do ambiente R.</p></li>
+<li>
+<p><strong>Modelagem Bayesian:</strong> Métodos Bayesianos estão ganhando tração no R para uma ampla variedade de aplicações. Pacotes como <code>brms</code><span class="citation" data-cites="brms">(<a href="#ref-brms" role="doc-biblioref">Bürkner 2017</a>)</span> e <code>rstan</code> <span class="citation" data-cites="rstan">(<a href="#ref-rstan" role="doc-biblioref">2023</a>)</span> oferecem frameworks avançados para modelagem estatística Bayesiana.</p>
+<p>Essas tendências demonstram como o R está evoluindo e se adaptando às necessidades de uma paisagem de dados em rápida mudança, mantendo-se como uma ferramenta valiosa e relevante no campo do Machine Learning.</p>
+</li>
+</ol>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-keras" class="csl-entry" role="listitem">
+Allaire, JJ, and François Chollet. 2023. <span>“Keras: R Interface to ’Keras’.”</span> <a href="https://CRAN.R-project.org/package=keras">https://CRAN.R-project.org/package=keras</a>.
+</div>
+<div id="ref-tensorflow" class="csl-entry" role="listitem">
+Allaire, JJ, and Yuan Tang. 2023. <span>“Tensorflow: R Interface to ’TensorFlow’.”</span> <a href="https://CRAN.R-project.org/package=tensorflow">https://CRAN.R-project.org/package=tensorflow</a>.
+</div>
+<div id="ref-DALEX" class="csl-entry" role="listitem">
+Biecek, Przemyslaw. 2018. <span>“DALEX: Explainers for Complex Predictive Models in r”</span> 19: 1–5. <a href="https://jmlr.org/papers/v19/18-416.html">https://jmlr.org/papers/v19/18-416.html</a>.
+</div>
+<div id="ref-automl" class="csl-entry" role="listitem">
+Boulangé, Alex. 2020. <span>“Automl: Deep Learning with Metaheuristic.”</span> <a href="https://CRAN.R-project.org/package=automl">https://CRAN.R-project.org/package=automl</a>.
+</div>
+<div id="ref-burger2018" class="csl-entry" role="listitem">
+Burger, S. V. 2018. <em>Introduction to Machine Learning with r: Rigorous Mathematical Analysis</em>. O’Reilly Media.
+</div>
+<div id="ref-brms" class="csl-entry" role="listitem">
+Bürkner, Paul-Christian. 2017. <span>“<span></span>Brms<span></span>: An <span></span>r<span></span> Package for <span></span>Bayesian<span></span> Multilevel Models Using <span></span>Stan<span></span>”</span> 80. <a href="https://doi.org/10.18637/jss.v080.i01">https://doi.org/10.18637/jss.v080.i01</a>.
+</div>
+<div id="ref-chan2015" class="csl-entry" role="listitem">
+Chan, B. K. C. 2015. <em>Biostatistics for Epidemiology and Public Health Using r</em>. Springer Publishing Company.
+</div>
+<div id="ref-neuralnet" class="csl-entry" role="listitem">
+Fritsch, Stefan, Frauke Guenther, and Marvin N. Wright. 2019. <span>“Neuralnet: Training of Neural Networks.”</span> <a href="https://CRAN.R-project.org/package=neuralnet">https://CRAN.R-project.org/package=neuralnet</a>.
+</div>
+<div id="ref-lime" class="csl-entry" role="listitem">
+Hvitfeldt, Emil, Thomas Lin Pedersen, and Michaël Benesty. 2022. <span>“Lime: Local Interpretable Model-Agnostic Explanations.”</span> <a href="https://CRAN.R-project.org/package=lime">https://CRAN.R-project.org/package=lime</a>.
+</div>
+<div id="ref-James2013" class="csl-entry" role="listitem">
+James, Gareth, Daniela Witten, Trevor Hastie, and Robert Tibshirani. 2023. <em>An Introduction to Statistical Learning: With Applications in r</em>. 2nd ed. Springer.
+</div>
+<div id="ref-caret" class="csl-entry" role="listitem">
+Kuhn, and Max. 2008. <span>“Building Predictive Models in r Using the Caret Package.”</span> <em>Journal of Statistical Software</em> 28 (5): 1–26. <a href="https://doi.org/10.18637/jss.v028.i05">https://doi.org/10.18637/jss.v028.i05</a>.
+</div>
+<div id="ref-mlbench" class="csl-entry" role="listitem">
+Leisch, Friedrich, and Evgenia Dimitriadou. 2021. <span>“Mlbench: Machine Learning Benchmark Problems.”</span>
+</div>
+<div id="ref-sparlyr" class="csl-entry" role="listitem">
+Luraschi, Javier, Kevin Kuo, Kevin Ushey, JJ Allaire, Hossein Falaki, Lu Wang, Andy Zhang, Yitao Li, Edgar Ruiz, and The Apache Software Foundation. 2023. <em>Sparklyr: R Interface to Apache Spark</em>. <a href="https://CRAN.R-project.org/package=sparklyr">https://CRAN.R-project.org/package=sparklyr</a>.
+</div>
+<div id="ref-e1071" class="csl-entry" role="listitem">
+Meyer, David, Evgenia Dimitriadou, Kurt Hornik, Andreas Weingessel, and Friedrich Leisch. 2023. <span>“E1071: Misc Functions of the Department of Statistics, Probability Theory Group (Formerly: E1071), TU Wien.”</span> <a href="https://CRAN.R-project.org/package=e1071">https://CRAN.R-project.org/package=e1071</a>.
+</div>
+<div id="ref-ReinforcementLearning" class="csl-entry" role="listitem">
+Proellochs, Nicolas, and Stefan Feuerriegel. 2020. <span>“ReinforcementLearning: Model-Free Reinforcement Learning.”</span> <a href="https://CRAN.R-project.org/package=ReinforcementLearning">https://CRAN.R-project.org/package=ReinforcementLearning</a>.
+</div>
+<div id="ref-singh2016r" class="csl-entry" role="listitem">
+Singh, A. K., and D. E. Allen. 2016. <em>R in Finance and Economics: A Beginner’s Guide</em>. World Scientific Publishing Company.
+</div>
+<div id="ref-markovchain" class="csl-entry" role="listitem">
+Spedicato, Giorgio Alfredo. 2017. <span>“Discrete Time Markov Chains with r”</span> 9. <a href="https://journal.r-project.org/archive/2017/RJ-2017-036/index.html">https://journal.r-project.org/archive/2017/RJ-2017-036/index.html</a>.
+</div>
+<div id="ref-rstan" class="csl-entry" role="listitem">
+Stan Development Team. 2023. <span>“<span></span>RStan<span></span>: The <span></span>r<span></span> Interface to <span></span>Stan<span></span>.”</span> <a href="https://mc-stan.org/">https://mc-stan.org/</a>.
+</div>
+<div id="ref-nnet" class="csl-entry" role="listitem">
+Venables, W. N., and B. D. Ripley. 2002. <span>“Modern Applied Statistics with s.”</span> <a href="https://www.stats.ox.ac.uk/pub/MASS4/">https://www.stats.ox.ac.uk/pub/MASS4/</a>.
+</div>
+<div id="ref-ggplot2" class="csl-entry" role="listitem">
+Wickham, Hadley. 2016. <span>“Ggplot2: Elegant Graphics for Data Analysis.”</span> <a href="https://ggplot2.tidyverse.org">https://ggplot2.tidyverse.org</a>.
+</div>
+<div id="ref-zbicki2020" class="csl-entry" role="listitem">
+Zbicki, R. E., and T. M. dos Santos. 2020. <em>Aprendizado de Máquina: Uma Abordagem Estatística</em>. 1st ed.
+</div>
+</div>
+</section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
