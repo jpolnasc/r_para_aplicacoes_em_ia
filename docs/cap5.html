@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.3.433">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>cap5</title>
+<title>Software R para aplicações em IA – cap5</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -73,11 +73,13 @@ div.csl-indent {
 }</style>
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
 <script src="site_libs/quarto-search/autocomplete.umd.js"></script>
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<link href="./imagens/Eri-Logo.jpg" rel="icon" type="image/jpeg">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -87,11 +89,11 @@ div.csl-indent {
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
-  "location": "sidebar",
+  "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
-  "panel-placement": "start",
-  "type": "textbox",
+  "panel-placement": "end",
+  "type": "overlay",
   "limit": 20,
   "language": {
     "search-no-results-text": "No results",
@@ -107,16 +109,85 @@ div.csl-indent {
   }
 }</script>
 </head>
-<body>
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+  <header id="quarto-header" class="headroom fixed-top"><nav class="navbar navbar-expand-lg navbar-dark "><div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">Software R para aplicações em IA</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+<li class="nav-item">
+    <a class="nav-link" href="./index.html" rel="" target="">
+ <span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./cap1.html" rel="" target="">
+ <span class="menu-text">Capítulo 1</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./cap2.html" rel="" target="">
+ <span class="menu-text">Capítulo 2</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./cap3.html" rel="" target="">
+ <span class="menu-text">Capítulo 3</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./cap4.html" rel="" target="">
+ <span class="menu-text">Capítulo 4</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="./cap5.html" rel="" target="" aria-current="page">
+ <span class="menu-text">Capítulo 5</span></a>
+  </li>  
+</ul>
+<div class="quarto-navbar-tools ms-auto">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="cap5.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></div>
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">On this page</h2>
+   
+  <ul>
+<li><a href="#modelagem-e-an%C3%A1lise-de-texto" id="toc-modelagem-e-análise-de-texto" class="nav-link active" data-scroll-target="#modelagem-e-an%C3%A1lise-de-texto"><strong>Modelagem e Análise de Texto</strong></a></li>
+  <li>
+<a href="#conceitos-b%C3%A1sicos-de-minera%C3%A7%C3%A3o-de-texto" id="toc-conceitos-básicos-de-mineração-de-texto" class="nav-link" data-scroll-target="#conceitos-b%C3%A1sicos-de-minera%C3%A7%C3%A3o-de-texto"><strong>Conceitos Básicos de Mineração de Texto</strong></a>
+  <ul class="collapse">
+<li><a href="#a-import%C3%A2ncia-da-l%C3%ADngua-na-minera%C3%A7%C3%A3o-de-texto" id="toc-a-importância-da-língua-na-mineração-de-texto" class="nav-link" data-scroll-target="#a-import%C3%A2ncia-da-l%C3%ADngua-na-minera%C3%A7%C3%A3o-de-texto"><strong>A Importância da Língua na Mineração de Texto</strong></a></li>
+  </ul>
+</li>
+  <li>
+<a href="#introdu%C3%A7%C3%A3o-%C3%A0-minera%C3%A7%C3%A3o-de-texto-com-r" id="toc-introdução-à-mineração-de-texto-com-r" class="nav-link" data-scroll-target="#introdu%C3%A7%C3%A3o-%C3%A0-minera%C3%A7%C3%A3o-de-texto-com-r"><strong>Introdução à Mineração de Texto com R</strong></a>
+  <ul class="collapse">
+<li><a href="#preparando-os-dados" id="toc-preparando-os-dados" class="nav-link" data-scroll-target="#preparando-os-dados"><strong>Preparando os Dados</strong></a></li>
+  <li><a href="#pr%C3%A9-processamento-de-termos-no-corpus" id="toc-pré-processamento-de-termos-no-corpus" class="nav-link" data-scroll-target="#pr%C3%A9-processamento-de-termos-no-corpus"><strong>Pré-processamento de Termos no Corpus</strong></a></li>
+  <li><a href="#compara%C3%A7%C3%A3o-dos-tr%C3%AAs-corpus" id="toc-comparação-dos-três-corpus" class="nav-link" data-scroll-target="#compara%C3%A7%C3%A3o-dos-tr%C3%AAs-corpus"><strong>Comparação dos Três Corpus</strong></a></li>
+  <li><a href="#frequ%C3%AAncia-de-termos" id="toc-frequência-de-termos" class="nav-link" data-scroll-target="#frequ%C3%AAncia-de-termos"><strong>Frequência de Termos</strong></a></li>
+  <li><a href="#cria%C3%A7%C3%A3o-de-nuvens-de-palavras-com-r" id="toc-criação-de-nuvens-de-palavras-com-r" class="nav-link" data-scroll-target="#cria%C3%A7%C3%A3o-de-nuvens-de-palavras-com-r"><strong>Criação de Nuvens de Palavras com R</strong></a></li>
+  </ul>
+</li>
+  <li>
+<a href="#an%C3%A1lise-de-sentimentos" id="toc-análise-de-sentimentos" class="nav-link" data-scroll-target="#an%C3%A1lise-de-sentimentos">Análise de Sentimentos</a>
+  <ul class="collapse">
+<li><a href="#exemplo-pr%C3%A1tico" id="toc-exemplo-prático" class="nav-link" data-scroll-target="#exemplo-pr%C3%A1tico"><strong>Exemplo Prático</strong></a></li>
+  <li><a href="#prepara%C3%A7%C3%A3o-dos-dados-de-sentimentos-para-visualiza%C3%A7%C3%A3o" id="toc-preparação-dos-dados-de-sentimentos-para-visualização" class="nav-link" data-scroll-target="#prepara%C3%A7%C3%A3o-dos-dados-de-sentimentos-para-visualiza%C3%A7%C3%A3o"><strong>Preparação dos Dados de Sentimentos para Visualização</strong></a></li>
+  <li><a href="#outras-an%C3%A1lises-de-texto-no-r" id="toc-outras-análises-de-texto-no-r" class="nav-link" data-scroll-target="#outras-an%C3%A1lises-de-texto-no-r"><strong>Outras Análises de Texto no R</strong></a></li>
+  </ul>
+</li>
+  <li><a href="#tend%C3%AAncias-e-avan%C3%A7os-na-an%C3%A1lise-de-texto" id="toc-tendências-e-avanços-na-análise-de-texto" class="nav-link" data-scroll-target="#tend%C3%AAncias-e-avan%C3%A7os-na-an%C3%A1lise-de-texto"><strong>Tendências e Avanços na Análise de Texto</strong></a></li>
+  </ul></nav>
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><section id="modelagem-e-análise-de-texto" class="level2"><h2 class="anchored" data-anchor-id="modelagem-e-análise-de-texto"><strong>Modelagem e Análise de Texto</strong></h2>
 <p>A mineração de texto é uma área fascinante da ciência de dados que se concentra na extração de informações significativas de dados textuais. Na era digital de hoje, onde enormes volumes de texto são gerados diariamente, a mineração de texto torna-se essencial para analisar e compreender esses dados. Com o uso da linguagem de programação R, essa tarefa não apenas se torna acessível, mas também altamente eficiente <span class="citation" data-cites="kwartler2017 silge2017">(<a href="#ref-kwartler2017" role="doc-biblioref">Kwartler 2017</a>; <a href="#ref-silge2017" role="doc-biblioref">J. Silge and Robinson 2017</a>)</span>.</p>
@@ -572,7 +643,8 @@ Content:  documents: 2000</code></pre>
 </ul>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+
+</section><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
 <div id="ref-anandarajan2019" class="csl-entry" role="listitem">
 Anandarajan, M., C. Hill, and T. Nolan. 2019. <em>Practical Text Analytics: Maximizing the Value of Text Data</em>. Advances in Analytics and Data Science. Springer International Publishing.
 </div>
@@ -624,8 +696,7 @@ Wijffels, Jan. 2021. <span>“Doc2vec: Distributed Representations of Sentences,
 <div id="ref-word2vec" class="csl-entry" role="listitem">
 Wijffels, Jan, and Kohei Watanabe. 2023. <span>“Word2vec: Distributed Representations of Words.”</span> <a href="https://CRAN.R-project.org/package=word2vec">https://CRAN.R-project.org/package=word2vec</a>.
 </div>
-</div>
-</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+</div></section></div></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");

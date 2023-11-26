@@ -2,11 +2,9 @@ project:
   type: website
   output-dir: docs
 
-book:
-
+site:
   title: "Software R para aplicações em IA"
-  reader-mode: true
-  page-navigation: true
+  subtitle: "Uma Abordagem Prática"
   author:
     - name: "Anderson Castro Soares de Oliveira"
       affiliations:
@@ -14,19 +12,30 @@ book:
     - name: "João Pedro Florentino de Oliveira Nascimento"
       affiliations:
         - name: "Departamento de Estatística/UFMT"
-  
-  cover-image: imagens/Eri-Logo.jpg 
-  image: imagens/Eri-Logo.jpg 
-  favicon: imagens/Eri-Logo.jpg 
+  favicon: imagens/Eri-Logo.jpg
+  logo: imagens/Eri-Logo.jpg
   date: "11/23/2023"
-  chapters:
-    - index.qmd
-    - cap1.qmd
-    - cap2.qmd
-    - cap3.qmd
-    - cap4.qmd
-    - cap5.qmd
-    - references.qmd
+  navbar:
+    left:
+      - text: "Home"
+        href: index.qmd
+      - text: "Capítulo 1"
+        href: cap1.qmd
+      - text: "Capítulo 2"
+        href: cap2.qmd
+      - text: "Capítulo 3"
+        href: cap3.qmd
+      - text: "Capítulo 4"
+        href: cap4.qmd
+      - text: "Capítulo 5"
+        href: cap5.qmd
+  sections:
+    - home: index.qmd
+    - capítulo 1: cap1.qmd
+    - capítulo 2: cap2.qmd
+    - capítulo 3: cap3.qmd
+    - capítulo 4: cap4.qmd
+    - capítulo 5: cap5.qmd
 
 bibliography: references.bib
 format:
@@ -34,12 +43,8 @@ format:
     theme:
       - cosmo
       - r4ds.scss
+    highlight-style: tango
+    toc: true
     code-link: true
 
-  pdf:
-   documentclass: scrbook
-   margin-left: 30mm
-   margin-right: 30mm 
-   
 editor: visual
-

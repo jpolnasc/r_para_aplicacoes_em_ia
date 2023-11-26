@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>cap3</title>
+<title>Software R para aplicações em IA – cap3</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -43,11 +43,13 @@ div.csl-indent {
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
 <script src="site_libs/quarto-search/autocomplete.umd.js"></script>
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<link href="./imagens/Eri-Logo.jpg" rel="icon" type="image/jpeg">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -58,11 +60,11 @@ div.csl-indent {
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
-  "location": "sidebar",
+  "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
-  "panel-placement": "start",
-  "type": "textbox",
+  "panel-placement": "end",
+  "type": "overlay",
   "limit": 20,
   "language": {
     "search-no-results-text": "No results",
@@ -81,16 +83,93 @@ div.csl-indent {
 
 </head>
 
-<body>
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">Software R para aplicações em IA</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html" rel="" target="">
+ <span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./cap1.html" rel="" target="">
+ <span class="menu-text">Capítulo 1</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./cap2.html" rel="" target="">
+ <span class="menu-text">Capítulo 2</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="./cap3.html" rel="" target="" aria-current="page">
+ <span class="menu-text">Capítulo 3</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./cap4.html" rel="" target="">
+ <span class="menu-text">Capítulo 4</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./cap5.html" rel="" target="">
+ <span class="menu-text">Capítulo 5</span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools ms-auto">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="cap3.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></div>
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#r-breve-histórico-e-importância" id="toc-r-breve-histórico-e-importância" class="nav-link active" data-scroll-target="#r-breve-histórico-e-importância"><strong>R: Breve Histórico e Importância</strong></a>
+  <ul class="collapse">
+  <li><a href="#r-no-contexto-da-análise-estatística-e-ciência-de-dados" id="toc-r-no-contexto-da-análise-estatística-e-ciência-de-dados" class="nav-link" data-scroll-target="#r-no-contexto-da-análise-estatística-e-ciência-de-dados"><strong>R no Contexto da Análise Estatística e Ciência de Dados</strong></a>
+  <ul class="collapse">
+  <li><a href="#o-r-na-era-da-inteligência-artificial" id="toc-o-r-na-era-da-inteligência-artificial" class="nav-link" data-scroll-target="#o-r-na-era-da-inteligência-artificial"><strong>O R na Era da Inteligência Artificial</strong></a></li>
+  <li><a href="#a-comunidade-e-o-ecossistema-do-r" id="toc-a-comunidade-e-o-ecossistema-do-r" class="nav-link" data-scroll-target="#a-comunidade-e-o-ecossistema-do-r"><strong>A Comunidade e o Ecossistema do R</strong></a></li>
+  </ul></li>
+  <li><a href="#popularidade-do-r-na-pesquisa-científica" id="toc-popularidade-do-r-na-pesquisa-científica" class="nav-link" data-scroll-target="#popularidade-do-r-na-pesquisa-científica"><strong>Popularidade do R na Pesquisa Científica</strong></a>
+  <ul class="collapse">
+  <li><a href="#estudos-de-caso-e-aplicações-em-diversos-campos" id="toc-estudos-de-caso-e-aplicações-em-diversos-campos" class="nav-link" data-scroll-target="#estudos-de-caso-e-aplicações-em-diversos-campos">Estudos de Caso e Aplicações em Diversos Campos</a></li>
+  <li><a href="#contribuição-da-comunidade-científica-para-o-desenvolvimento-do-r" id="toc-contribuição-da-comunidade-científica-para-o-desenvolvimento-do-r" class="nav-link" data-scroll-target="#contribuição-da-comunidade-científica-para-o-desenvolvimento-do-r"><strong>Contribuição da Comunidade Científica para o Desenvolvimento do R</strong></a></li>
+  <li><a href="#adaptação-às-necessidades-emergentes-em-ciência-de-dados-e-ia" id="toc-adaptação-às-necessidades-emergentes-em-ciência-de-dados-e-ia" class="nav-link" data-scroll-target="#adaptação-às-necessidades-emergentes-em-ciência-de-dados-e-ia"><strong>Adaptação às Necessidades Emergentes em Ciência de Dados e IA</strong></a></li>
+  </ul></li>
+  <li><a href="#vantagens-e-limitações-do-r-para-ia" id="toc-vantagens-e-limitações-do-r-para-ia" class="nav-link" data-scroll-target="#vantagens-e-limitações-do-r-para-ia"><strong>Vantagens e Limitações do R para IA</strong></a>
+  <ul class="collapse">
+  <li><a href="#vantagens-do-uso-do-r-em-ia" id="toc-vantagens-do-uso-do-r-em-ia" class="nav-link" data-scroll-target="#vantagens-do-uso-do-r-em-ia"><strong>Vantagens do Uso do R em IA</strong></a></li>
+  <li><a href="#limitações-e-desafios" id="toc-limitações-e-desafios" class="nav-link" data-scroll-target="#limitações-e-desafios"><strong>Limitações e Desafios</strong></a></li>
+  </ul></li>
+  <li><a href="#configuração-e-ferramentas-essenciais" id="toc-configuração-e-ferramentas-essenciais" class="nav-link" data-scroll-target="#configuração-e-ferramentas-essenciais"><strong>Configuração e Ferramentas Essenciais</strong></a>
+  <ul class="collapse">
+  <li><a href="#instalação-e-configuração-básica" id="toc-instalação-e-configuração-básica" class="nav-link" data-scroll-target="#instalação-e-configuração-básica"><strong>Instalação e Configuração Básica</strong></a></li>
+  <li><a href="#gestão-de-pacotes" id="toc-gestão-de-pacotes" class="nav-link" data-scroll-target="#gestão-de-pacotes"><strong>Gestão de Pacotes</strong></a></li>
+  <li><a href="#pacotes-de-machine-learning" id="toc-pacotes-de-machine-learning" class="nav-link" data-scroll-target="#pacotes-de-machine-learning"><strong>Pacotes de Machine Learning</strong></a></li>
+  <li><a href="#pacotes-para-aprendizado-profundo" id="toc-pacotes-para-aprendizado-profundo" class="nav-link" data-scroll-target="#pacotes-para-aprendizado-profundo"><strong>Pacotes para Aprendizado Profundo</strong></a></li>
+  <li><a href="#integração-e-expansão" id="toc-integração-e-expansão" class="nav-link" data-scroll-target="#integração-e-expansão"><strong>Integração e Expansão</strong></a></li>
+  </ul></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
@@ -232,7 +311,12 @@ div.csl-indent {
 </ul>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+
+</section>
+</section>
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
 <div id="ref-al2019applied" class="csl-entry" role="listitem">
 Al-Karkhi, A. F. M., and W. A. A. Alqaraghuli. 2019. <em>Applied Statistics for Environmental Science with r</em>. Elsevier Science.
 </div>
@@ -314,12 +398,7 @@ Venables, W., and B. D. Ripley. 2013. <em>S Programming</em>. Statistics and Com
 <div id="ref-wickham2016" class="csl-entry" role="listitem">
 Wickham, H., and G. Grolemund. 2016. <em>R for Data Science: Import, Tidy, Transform, Visualize, and Model Data</em>. O’Reilly Media.
 </div>
-</div>
-</section>
-</section>
-</section>
-
-</main> <!-- /main -->
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

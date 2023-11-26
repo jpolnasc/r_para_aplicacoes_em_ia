@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>cap2</title>
+<title>Software R para aplicações em IA – cap2</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -43,11 +43,13 @@ div.csl-indent {
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
 <script src="site_libs/quarto-search/autocomplete.umd.js"></script>
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<link href="./imagens/Eri-Logo.jpg" rel="icon" type="image/jpeg">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -58,11 +60,11 @@ div.csl-indent {
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
-  "location": "sidebar",
+  "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
-  "panel-placement": "start",
-  "type": "textbox",
+  "panel-placement": "end",
+  "type": "overlay",
   "limit": 20,
   "language": {
     "search-no-results-text": "No results",
@@ -83,16 +85,76 @@ div.csl-indent {
 
 </head>
 
-<body>
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">Software R para aplicações em IA</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html" rel="" target="">
+ <span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./cap1.html" rel="" target="">
+ <span class="menu-text">Capítulo 1</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="./cap2.html" rel="" target="" aria-current="page">
+ <span class="menu-text">Capítulo 2</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./cap3.html" rel="" target="">
+ <span class="menu-text">Capítulo 3</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./cap4.html" rel="" target="">
+ <span class="menu-text">Capítulo 4</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./cap5.html" rel="" target="">
+ <span class="menu-text">Capítulo 5</span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools ms-auto">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="cap2.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></div>
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#estatística-machine-learning-e-ia" id="toc-estatística-machine-learning-e-ia" class="nav-link active" data-scroll-target="#estatística-machine-learning-e-ia">Estatística, Machine Learning e IA</a>
+  <ul class="collapse">
+  <li><a href="#estatística-a-fundação" id="toc-estatística-a-fundação" class="nav-link" data-scroll-target="#estatística-a-fundação">Estatística: A Fundação</a></li>
+  <li><a href="#machine-learning-construindo-sobre-estatística" id="toc-machine-learning-construindo-sobre-estatística" class="nav-link" data-scroll-target="#machine-learning-construindo-sobre-estatística">Machine Learning: Construindo sobre Estatística</a>
+  <ul class="collapse">
+  <li><a href="#aprendizado-supervisionado" id="toc-aprendizado-supervisionado" class="nav-link" data-scroll-target="#aprendizado-supervisionado">Aprendizado Supervisionado</a></li>
+  <li><a href="#aprendizado-não-supervisionado" id="toc-aprendizado-não-supervisionado" class="nav-link" data-scroll-target="#aprendizado-não-supervisionado">Aprendizado Não Supervisionado</a></li>
+  </ul></li>
+  <li><a href="#inteligência-artificial-uma-visão-ampla" id="toc-inteligência-artificial-uma-visão-ampla" class="nav-link" data-scroll-target="#inteligência-artificial-uma-visão-ampla">Inteligência Artificial: Uma Visão Ampla</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
@@ -236,7 +298,11 @@ div.csl-indent {
 </ul>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+
+</section>
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
 <div id="ref-burger2018" class="csl-entry" role="listitem">
 Burger, S. V. 2018. <em>Introduction to Machine Learning with r: Rigorous Mathematical Analysis</em>. O’Reilly Media.
 </div>
@@ -267,11 +333,7 @@ Thaichon, P., and S. Quach, eds. 2022. <em>Artificial Intelligence for Marketing
 <div id="ref-zbicki2020" class="csl-entry" role="listitem">
 Zbicki, R. E., and T. M. dos Santos. 2020. <em>Aprendizado de Máquina: Uma Abordagem Estatística</em>. 1st ed.
 </div>
-</div>
-</section>
-</section>
-
-</main> <!-- /main -->
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
